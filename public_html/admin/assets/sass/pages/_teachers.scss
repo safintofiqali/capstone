@@ -1,0 +1,61 @@
+section.section-navcards {
+    min-height:90vh;
+    height:90vh;
+    background-color: $color-main-panel;
+    position: relative;
+    padding:5rem 0;
+}
+
+section {
+    padding:5rem 0;
+}
+
+.section-user {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-user-light,.7),
+        rgba($color-user-dark,.7)
+    );
+
+    &__link-wrapper {
+        margin:0 auto;
+        text-align: center;
+    }
+    .pagination__links {
+        font-size: 2rem;
+        margin:0 auto;
+        color:$color-btn-1;
+        &:not(:last-of-type) {
+            margin-right: 1rem;
+        }
+    }
+}
+.section-project {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-user-light,.7),
+        rgba($color-user-dark,.7)
+    );
+}
+.section-idea {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-project-light,.7),
+        rgba($color-project-dark,.7)
+    );
+}
+
+.section-comment {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-user-light,.7),
+        rgba($color-user-dark,.7)
+    );
+}
+
+
+#addProject {
+    padding:8rem 0;
+    background-color: gold;
+}
+

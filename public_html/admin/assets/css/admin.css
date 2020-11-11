@@ -1,0 +1,376 @@
+/* line 1, ../admin/assets/sass/base/_base.scss */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+/* line 8, ../admin/assets/sass/base/_base.scss */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+/* line 13, ../admin/assets/sass/base/_base.scss */
+body {
+  position: relative; }
+
+/* line 1, ../admin/assets/sass/base/_utilities.scss */
+.u-text-center {
+  text-align: center; }
+
+/* line 4, ../admin/assets/sass/base/_utilities.scss */
+.u-margin-bottom-big {
+  margin-bottom: 6rem; }
+
+/* line 7, ../admin/assets/sass/base/_utilities.scss */
+.u-margin-bottom-medium {
+  margin-bottom: 2.5rem; }
+
+/* line 10, ../admin/assets/sass/base/_utilities.scss */
+.u-margin-bottom-small {
+  margin-bottom: 1rem; }
+
+/* line 13, ../admin/assets/sass/base/_utilities.scss */
+.u-margin-top-medium {
+  margin-top: 1.5rem; }
+
+/* line 1, ../admin/assets/sass/base/_typography.scss */
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 1.7; }
+
+/* line 7, ../admin/assets/sass/base/_typography.scss */
+.heading-primary {
+  color: #1E2019;
+  font-size: 4rem;
+  text-transform: uppercase;
+  font-weight: 400; }
+
+/* line 1, ../admin/assets/sass/components/_button.scss */
+.btn {
+  display: inline-block;
+  text-decoration: none; }
+  /* line 6, ../admin/assets/sass/components/_button.scss */
+  .btn-add--user:link, .btn-add--user:visited {
+    background-color: #E55934;
+    padding: .5rem 2rem;
+    border-radius: 10rem;
+    color: #D3D0CB;
+    font-size: 1.6rem;
+    transition: all .3s ease-in-out; }
+  /* line 16, ../admin/assets/sass/components/_button.scss */
+  .btn-add--user:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 2rem rgba(30, 32, 25, 0.15); }
+
+/* line 1, ../admin/assets/sass/components/_form.scss */
+.form {
+  height: 100vh;
+  padding: 3rem 2rem;
+  background-image: linear-gradient(to right bottom, rgba(30, 32, 25, 0.7), rgba(30, 32, 25, 0.7));
+  border: none;
+  border-top: 2px solid rgba(229, 89, 52, 0.4);
+  border-bottom: 2px solid rgba(229, 89, 52, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  /* line 14, ../admin/assets/sass/components/_form.scss */
+  .form__header {
+    font-size: 2.5rem;
+    color: #E2C044;
+    margin-bottom: 2rem; }
+  /* line 20, ../admin/assets/sass/components/_form.scss */
+  .form span {
+    margin-right: 1rem; }
+  /* line 24, ../admin/assets/sass/components/_form.scss */
+  .form__group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%; }
+    /* line 31, ../admin/assets/sass/components/_form.scss */
+    .form__group:not(:last-child) {
+      margin-bottom: 1.5rem; }
+    @media screen and (min-width: 56.25em) {
+      /* line 24, ../admin/assets/sass/components/_form.scss */
+      .form__group {
+        width: 50%;
+        flex-direction: row; } }
+  /* line 41, ../admin/assets/sass/components/_form.scss */
+  .form__input, .form__label, .form__select {
+    width: 50%;
+    padding: 1rem;
+    font-size: 1.6rem;
+    line-height: 1.2; }
+  /* line 50, ../admin/assets/sass/components/_form.scss */
+  .form__input, .form__select {
+    background-color: #E2C044;
+    border: none;
+    transition: all .5s ease;
+    font-family: inherit; }
+    /* line 56, ../admin/assets/sass/components/_form.scss */
+    .form__input:focus, .form__select:focus {
+      outline: none;
+      background-color: rgba(226, 192, 68, 0.5); }
+  /* line 66, ../admin/assets/sass/components/_form.scss */
+  .form textarea {
+    line-height: 1;
+    font-family: inherit; }
+  /* line 71, ../admin/assets/sass/components/_form.scss */
+  .form__label {
+    text-align: center;
+    display: inline-block;
+    font-weight: 700;
+    background-color: rgba(211, 208, 203, 0.5);
+    color: #E2C044;
+    margin-right: 0; }
+    @media screen and (min-width: 56.25em) {
+      /* line 71, ../admin/assets/sass/components/_form.scss */
+      .form__label {
+        text-align: right;
+        margin-right: 1rem; } }
+  /* line 85, ../admin/assets/sass/components/_form.scss */
+  .form__btn {
+    width: 50%;
+    height: 4rem;
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    background-color: #E55934;
+    display: inline-block;
+    transition: all .3s ease;
+    cursor: pointer; }
+    /* line 97, ../admin/assets/sass/components/_form.scss */
+    .form__btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 1rem 2rem rgba(30, 32, 25, 0.2); }
+
+/* line 1, ../admin/assets/sass/components/_nav-card.scss */
+.navcard-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+/* line 8, ../admin/assets/sass/components/_nav-card.scss */
+.navcard-row {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  /* line 13, ../admin/assets/sass/components/_nav-card.scss */
+  .navcard-row:not(:last-child) {
+    margin-bottom: 1rem; }
+
+/* line 19, ../admin/assets/sass/components/_nav-card.scss */
+.navcard {
+  box-shadow: 0 1rem 2rem rgba(30, 32, 25, 0.3);
+  padding: 1rem;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 5px;
+  transition: all .2s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  /* line 33, ../admin/assets/sass/components/_nav-card.scss */
+  .navcard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1.5rem 2.5rem rgba(30, 32, 25, 0.3); }
+  /* line 38, ../admin/assets/sass/components/_nav-card.scss */
+  .navcard:not(:last-child) {
+    margin-right: 1rem; }
+  /* line 42, ../admin/assets/sass/components/_nav-card.scss */
+  .navcard__icon {
+    font-size: 5rem; }
+  /* line 46, ../admin/assets/sass/components/_nav-card.scss */
+  .navcard__name {
+    font-size: 2rem; }
+  /* line 50, ../admin/assets/sass/components/_nav-card.scss */
+  .navcard--user {
+    background-image: linear-gradient(to right bottom, #FCF6EE, #F6E3CB); }
+  /* line 56, ../admin/assets/sass/components/_nav-card.scss */
+  .navcard--projects {
+    background-image: linear-gradient(to right bottom, #F0D0A8, #EABD85); }
+  /* line 62, ../admin/assets/sass/components/_nav-card.scss */
+  .navcard--ideas {
+    background-image: linear-gradient(to right bottom, #E7B373, #E1A051); }
+  /* line 68, ../admin/assets/sass/components/_nav-card.scss */
+  .navcard--comments {
+    background-image: linear-gradient(to right bottom, #DE973F, #DC8D2E); }
+  /* line 74, ../admin/assets/sass/components/_nav-card.scss */
+  .navcard__wrapper-link {
+    text-decoration: none;
+    display: block;
+    color: inherit; }
+    /* line 79, ../admin/assets/sass/components/_nav-card.scss */
+    .navcard__wrapper-link:not(:last-child) {
+      margin-right: 1rem; }
+
+/* line 1, ../admin/assets/sass/components/_admin-info.scss */
+.admin-info {
+  background-color: #1E2019;
+  display: flex;
+  align-items: center;
+  padding: 1rem 5rem;
+  min-height: 6rem; }
+  /* line 8, ../admin/assets/sass/components/_admin-info.scss */
+  .admin-info__img-box {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: salmon;
+    overflow: hidden;
+    border: 3px solid rgba(226, 192, 68, 0.5); }
+  /* line 16, ../admin/assets/sass/components/_admin-info.scss */
+  .admin-info__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
+  /* line 21, ../admin/assets/sass/components/_admin-info.scss */
+  .admin-info__username {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: #D3D0CB;
+    margin: 0 1.4rem; }
+  /* line 28, ../admin/assets/sass/components/_admin-info.scss */
+  .admin-info__icon {
+    font-size: 3rem;
+    color: rgba(211, 208, 203, 0.8);
+    align-self: center;
+    cursor: pointer; }
+    /* line 33, ../admin/assets/sass/components/_admin-info.scss */
+    .admin-info__icon:hover {
+      color: #D3D0CB; }
+  /* line 38, ../admin/assets/sass/components/_admin-info.scss */
+  .admin-info__links {
+    margin-left: auto; }
+  /* line 42, ../admin/assets/sass/components/_admin-info.scss */
+  .admin-info__link {
+    font-size: 1.6rem;
+    color: #9BC53D;
+    text-decoration: none; }
+    /* line 46, ../admin/assets/sass/components/_admin-info.scss */
+    .admin-info__link:not(:last-child) {
+      margin-right: 1.5rem; }
+
+/* line 1, ../admin/assets/sass/components/_user-table.scss */
+.table {
+  border-collapse: collapse;
+  font-size: 1.4rem;
+  min-width: 40rem;
+  margin: 2.5rem auto; }
+  /* line 8, ../admin/assets/sass/components/_user-table.scss */
+  .table thead {
+    background-color: #E2C044;
+    color: #1E2019;
+    text-align: left; }
+  /* line 14, ../admin/assets/sass/components/_user-table.scss */
+  .table th,
+  .table td {
+    padding: 1rem 2rem; }
+  /* line 18, ../admin/assets/sass/components/_user-table.scss */
+  .table td {
+    border-right: 1px solid rgba(30, 32, 25, 0.2); }
+  /* line 22, ../admin/assets/sass/components/_user-table.scss */
+  .table tbody tr {
+    border-bottom: 2px solid #F0D0A8; }
+    /* line 25, ../admin/assets/sass/components/_user-table.scss */
+    .table tbody tr:nth-child(even) {
+      background-color: rgba(211, 208, 203, 0.7); }
+    /* line 28, ../admin/assets/sass/components/_user-table.scss */
+    .table tbody tr:last-of-type {
+      border-bottom: 5px solid #EABD85; }
+
+/* line 1, ../admin/assets/sass/components/_search.scss */
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  /* line 6, ../admin/assets/sass/components/_search.scss */
+  .search__input {
+    width: 45%;
+    height: 4rem;
+    padding: 1.5rem;
+    font-size: 1.6rem; }
+  /* line 12, ../admin/assets/sass/components/_search.scss */
+  .search__btn {
+    height: 4rem;
+    padding: 0 1.5rem;
+    font-size: 1.6rem;
+    background-color: #9BC53D;
+    border: none;
+    margin-left: .5rem;
+    border-radius: 3px;
+    transition: all .3s;
+    cursor: pointer; }
+    /* line 23, ../admin/assets/sass/components/_search.scss */
+    .search__btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 1rem 2rem rgba(30, 32, 25, 0.15); }
+
+/* line 1, ../admin/assets/sass/pages/_teachers.scss */
+section.section-navcards {
+  min-height: 90vh;
+  height: 90vh;
+  background-color: #E9EBEC;
+  position: relative;
+  padding: 5rem 0; }
+
+/* line 9, ../admin/assets/sass/pages/_teachers.scss */
+section {
+  padding: 5rem 0; }
+
+/* line 13, ../admin/assets/sass/pages/_teachers.scss */
+.section-user {
+  background-image: linear-gradient(to right bottom, rgba(252, 246, 238, 0.7), rgba(246, 227, 203, 0.7)); }
+  /* line 20, ../admin/assets/sass/pages/_teachers.scss */
+  .section-user__link-wrapper {
+    margin: 0 auto;
+    text-align: center; }
+  /* line 24, ../admin/assets/sass/pages/_teachers.scss */
+  .section-user .pagination__links {
+    font-size: 2rem;
+    margin: 0 auto;
+    color: #E55934; }
+    /* line 28, ../admin/assets/sass/pages/_teachers.scss */
+    .section-user .pagination__links:not(:last-of-type) {
+      margin-right: 1rem; }
+
+/* line 33, ../admin/assets/sass/pages/_teachers.scss */
+.section-project {
+  background-image: linear-gradient(to right bottom, rgba(252, 246, 238, 0.7), rgba(246, 227, 203, 0.7)); }
+
+/* line 40, ../admin/assets/sass/pages/_teachers.scss */
+.section-idea {
+  background-image: linear-gradient(to right bottom, rgba(240, 208, 168, 0.7), rgba(234, 189, 133, 0.7)); }
+
+/* line 48, ../admin/assets/sass/pages/_teachers.scss */
+.section-comment {
+  background-image: linear-gradient(to right bottom, rgba(252, 246, 238, 0.7), rgba(246, 227, 203, 0.7)); }
+
+/* line 57, ../admin/assets/sass/pages/_teachers.scss */
+#addProject {
+  padding: 8rem 0;
+  background-color: gold; }
+
+/* line 1, ../admin/assets/sass/pages/_settings.scss */
+.section-upload {
+  width: 100%;
+  height: 40vh;
+  background-color: #F0D0A8;
+  position: relative; }
+
+/* line 8, ../admin/assets/sass/pages/_settings.scss */
+.section-user {
+  width: 100%;
+  min-height: 80vh;
+  background-color: #EABD85;
+  position: relative; }

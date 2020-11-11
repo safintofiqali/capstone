@@ -1,0 +1,21 @@
+.btn {
+    display: inline-block;
+    text-decoration: none;
+
+    &-add--user {
+        &:link,
+        &:visited {
+            background-color: $color-btn-1;
+            padding: .5rem 2rem;
+            border-radius: 10rem;
+            color: $color-light-1;
+            font-size: 1.6rem;
+            transition:all .3s ease-in-out;
+        }
+
+        &:hover {
+            transform:translateY(-5px);
+            box-shadow: 0 1rem 2rem rgba($color-dark-1,.15);
+        }
+    }
+}

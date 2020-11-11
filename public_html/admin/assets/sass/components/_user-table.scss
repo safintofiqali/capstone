@@ -1,0 +1,32 @@
+.table {
+    border-collapse: collapse;
+
+    font-size:1.4rem;
+    min-width:40rem;
+    margin:2.5rem auto;
+
+    thead {
+        background-color: $color-border-1;
+        color:$color-dark-1;
+        text-align: left;
+    }
+
+    th,
+    td {
+        padding:1rem 2rem;
+    }
+    td {
+        border-right: 1px solid rgba($color-dark-1,.2);
+    }
+
+    tbody tr {
+        border-bottom:2px solid $color-project-light;
+        
+        &:nth-child(even) {
+            background-color: rgba($color-light-1,.7);
+        }
+        &:last-of-type {
+            border-bottom:5px solid $color-project-dark;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+.section-showcase {
+    padding:3rem 2rem;
+}
+
+.section-about {
+    padding:8rem 0;
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-heading-secondary,.7),
+        rgba($color-heading-secondary,.7)),
+    url("../img/header-large.jpg");
+    background-size: cover;
+    background-position: center;
+
+    p {
+        width:80%;
+        margin:0 auto;
+        color:$color-primary-light;
+    }
+}
+
+.section-projects {
+    padding:3rem 2rem;
+}
+
+.section-share {
+    padding:4rem 0;
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-heading-secondary,.7),
+        rgba($color-heading-secondary,.7)),
+    url("../img/share.jpg");
+    background-size: cover;
+    background-position: center;
+
+    p {
+        width:80%;
+        margin:0 auto;
+        color:$color-primary-light;
+    }
+}
+
+.section-ideas {
+    padding:3rem 2rem;
+}

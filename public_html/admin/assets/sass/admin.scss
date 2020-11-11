@@ -1,0 +1,21 @@
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/animations";
+@import "base/base";
+@import "base/utilities";
+@import "base/typography";
+
+@import "components/button";
+@import "components/form";
+@import "components/nav-card";
+@import "components/admin-info";
+@import "components/user-table";
+@import "components/search";
+
+@import "layout/footer";
+@import "layout/header";
+@import "layout/flex";
+@import "pages/students";
+@import "pages/teachers";
+@import "pages/settings";

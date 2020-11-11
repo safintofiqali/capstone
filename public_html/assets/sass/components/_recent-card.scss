@@ -1,0 +1,39 @@
+.recent-card {
+    background-color: lightgreen;
+    width:100%;
+    height:100%;
+    position: relative;
+    overflow: hidden;
+   
+
+    &:hover &__background {
+        transform: scale(1.2);
+    }
+
+    &__background {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition:all .4s ease-out;
+    }
+    &__text-box {
+        @include textboxBottom($padding:3px);
+    }
+
+    &__title {
+        @include title($font-size:1.6rem,$font-weight:400,$color:$color-heading-secondary);
+        @include respond(tab-land) {
+            @include title($font-size:2rem,$font-weight:400,$color:$color-heading-secondary);
+        }
+    }
+
+    &__detail {
+        // font-size: $default-font-size;
+        // color: $color-primary-light;
+        // font-weight: 700;
+        @include title($font-size:1.4rem,$font-weight:400,$color:$color-primary-light);
+        @include respond(tab-land) {
+            @include title($font-size:1.6rem,$font-weight:400,$color:$color-primary-light);
+        }
+    }
+}

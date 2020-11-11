@@ -1,0 +1,28 @@
+.search {
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    &__input {
+        width:45%;
+        height:4rem;
+        padding:1.5rem;
+        font-size: 1.6rem;
+    }
+    &__btn {
+        height:4rem;
+        padding:0 1.5rem;
+        font-size:1.6rem;
+        background-color: $color-btn-2;
+        border:none;
+        margin-left: .5rem;
+        border-radius: 3px;
+        transition:all .3s;
+        cursor: pointer;
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 1rem 2rem rgba($color-dark-1,.15);
+        }
+    }
+}

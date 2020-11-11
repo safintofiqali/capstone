@@ -1,0 +1,15 @@
+{
+  "name": "capstone",
+  "version": "1.0.0",
+  "description": "Capstone project repository is a web application to store capstone projects' of AUIS students",
+  "main": "index.js",
+  "scripts": {
+    "compile:home": "node-sass sass/main.scss css/main.css -watch",
+    "compile:admin": "node-sass ../admin/assets/sass/admin.scss  ../admin/assets/css/admin.css -watch"
+  },
+  "author": "safintofiq",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}

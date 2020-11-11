@@ -1,0 +1,50 @@
+.admin-info {
+    background-color: $color-dark-1;
+    display:flex;
+    align-items: center;
+    padding:1rem 5rem ;
+    min-height:6rem;
+
+    &__img-box {
+        width:5rem;
+        height:5rem;
+        border-radius: 50%;
+        background-color: salmon;
+        overflow: hidden;
+        border:3px solid rgba($color-border-1,.5);
+    }
+    &__img {
+        width:100%;
+        height:100%;
+        object-fit: cover;
+    }
+    &__username {
+        font-size: 2rem;
+        letter-spacing: 1px;
+        font-weight:400;
+        color:$color-light-1;
+        margin:0 1.4rem;
+    }
+    &__icon {
+        font-size:3rem;
+        color:rgba($color-light-1,.8);
+        align-self: center;
+        cursor: pointer;
+        &:hover {
+            color:$color-light-1
+        }
+    }
+
+    &__links {
+        margin-left: auto;
+        // text-align: right;
+    }
+    &__link {
+        font-size:1.6rem;
+        color:$color-btn-2;
+        text-decoration: none;
+        &:not(:last-child) {
+            margin-right:1.5rem;
+        }
+    }
+}
