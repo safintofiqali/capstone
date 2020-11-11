@@ -10,108 +10,64 @@
                 <div class="slide-container">
                     <span class="slide-container__nextBtn"><i class="fas fa-chevron-right"></i></span>
                     <span class="slide-container__prevBtn"><i class="fas fa-chevron-left"></i></span>
-
-                    <a href="pages/projects/view.php?id=">
-                        <div class="slide">
-                            <img src="assets/img/project-1.jpg" alt="" class="slide__background">
-                            <div class="slide__text-box">
-                                <h3 class="slide__title">
-                                    <i class="fas fa-project-diagram"></i>&nbsp;Project Title
-                                </h3>
-                                <p class="slide__detail"><i class="fas fa-graduation-cap"></i>&nbsp;Project Major</p>
+                    <?php
+                    // Retrieve Projects for Slides
+                    $projects = selectRecentProject($conn);
+                    while ($project = mysqli_fetch_assoc($projects)) {
+                        $photo = selectPhoto($conn, $project['proj_id']);
+                    ?>
+                        <a href="<?php echo url_for('/view.php?proj_id=') . $project['proj_id']; ?>">
+                            <div class="slide">
+                                <img src="<?php echo url_for('admin/assets/img/projects/') . $photo['photo_destination']; ?>" alt="" class="slide__background">
+                                <div class="slide__text-box">
+                                    <h3 class="slide__title">
+                                        <i class="fas fa-project-diagram"></i>&nbsp;<?php echo $project['proj_title']; ?>
+                                    </h3>
+                                    <p class="slide__detail"><i class="fas fa-graduation-cap"></i>&nbsp;<?php echo $project['proj_major']; ?></p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-
-                    <div class="slide">
-                        <img src="assets/img/project-2.jpg" alt="" class="slide__background">
-                        <div class="slide__text-box">
-                            <h3 class="slide__title">
-                                <i class="fas fa-project-diagram"></i>&nbsp;Project Title
-                            </h3>
-                            <p class="slide__detail"><i class="fas fa-graduation-cap"></i>&nbsp;Project Major</p>
-                        </div>
-                    </div>
-
-                    <div class="slide">
-                        <img src="assets/img/project-3.jpg" alt="" class="slide__background">
-                        <div class="slide__text-box">
-                            <h3 class="slide__title">
-                                <i class="fas fa-project-diagram"></i>&nbsp;Project Title
-                            </h3>
-                            <p class="slide__detail"><i class="fas fa-graduation-cap"></i>&nbsp;Project Major</p>
-                        </div>
-                    </div>
-
-                    <div class="slide">
-                        <img src="assets/img/project-4.jpg" alt="" class="slide__background">
-                        <div class="slide__text-box">
-                            <h3 class="slide__title">
-                                <i class="fas fa-project-diagram"></i>&nbsp;Project Title
-                            </h3>
-                            <p class="slide__detail"><i class="fas fa-graduation-cap"></i>&nbsp;Project Major</p>
-                        </div>
-                    </div>
-
-                    <div class="slide">
-                        <img src="assets/img/project-5.jpg" alt="" class="slide__background">
-                        <div class="slide__text-box">
-                            <h3 class="slide__title">
-                                <i class="fas fa-project-diagram"></i>&nbsp;Project Title
-                            </h3>
-                            <p class="slide__detail"><i class="fas fa-graduation-cap"></i>&nbsp;Project Major</p>
-                        </div>
-                    </div>
-
+                        </a>
+                    <?php  } ?>
                 </div>
             </div>
 
             <!-- Column Two - Recent Project Cards -->
             <div class="col-md-2">
                 <div class="row">
-                    <div class="col-2">
-                        <div class="recent-card">
-                            <img src="assets/img/project-6.jpg" alt="" class="recent-card__background">
-                            <div class="recent-card__text-box">
-                                <h4 class="recent-card__title">Project Title</h4>
-                                <p class="recent-card__detail">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, voluptates.</p>
+                    <?php
+                    $projects = selectFourProject($conn, 0, 2);
+                    while ($project = mysqli_fetch_assoc($projects)) {
+                        $photo = selectPhoto($conn, $project['proj_id']);
+                    ?>
+                        <div class="col-2">
+                            <div class="recent-card">
+                                <img src="<?php echo url_for('admin/assets/img/projects/') . $photo['photo_destination']; ?>" alt="" class="recent-card__background">
+                                <div class="recent-card__text-box">
+                                    <h4 class="recent-card__title"><?php echo $project['proj_title']; ?></h4>
+                                    <p class="recent-card__detail">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, voluptates.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-2">
-                        <div class="recent-card">
-                            <img src="assets/img/project-7.jpg" alt="" class="recent-card__background">
-                            <div class="recent-card__text-box">
-                                <h4 class="recent-card__title">Project Title</h4>
-                                <p class="recent-card__detail">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, voluptates.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
 
                 <div class="row">
-                    <div class="col-2">
-                        <div class="recent-card">
-                            <img src="assets/img/project-8.jpg" alt="" class="recent-card__background">
-                            <div class="recent-card__text-box">
-                                <h4 class="recent-card__title">Project Title</h4>
-                                <p class="recent-card__detail">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, voluptates.</p>
+                    <?php
+                    $projects = selectFourProject($conn, 2, 2);
+                    while ($project = mysqli_fetch_assoc($projects)) {
+                        $photo = selectPhoto($conn, $project['proj_id']);
+                    ?>
+                        <div class="col-2">
+                            <div class="recent-card">
+                                <img src="<?php echo url_for('admin/assets/img/projects/') . $photo['photo_destination']; ?>" alt="" class="recent-card__background">
+                                <div class="recent-card__text-box">
+                                    <h4 class="recent-card__title"><?php echo $project['proj_title']; ?></h4>
+                                    <p class="recent-card__detail">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, voluptates.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-2">
-                        <div class="recent-card">
-                            <img src="assets/img/project-9.jpg" alt="" class="recent-card__background">
-                            <div class="recent-card__text-box">
-                                <h4 class="recent-card__title">Project Title</h4>
-                                <p class="recent-card__detail">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, voluptates.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
-
             </div>
         </div>
     </section>
@@ -131,7 +87,23 @@
             <h2 class="heading-primary">Projects</h2>
         </div>
 
-        <div class="row">
+        <script>
+                var http = new XMLHttpRequest();
+                http.open("GET","result.php",true);
+
+                http.onreadystatechange = function(){   
+                    if(this.status === 200 && this.readyState === 4) {
+                        document.querySelector(".results").innerHTML = this.responseText;
+                    }
+                }
+                http.send();
+            </script>
+        <div class="row results">
+            
+
+            </div>
+
+            <!-- <div class="row">
             <div class="col-md-4">
                 <a href="#">
                     <div class="card">
@@ -176,7 +148,7 @@
                     </div>
                 </a>
             </div>
-        </div>
+        </div> -->
     </section>
 
     <!-- Section About -->

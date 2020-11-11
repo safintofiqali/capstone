@@ -56,9 +56,8 @@
                     <td><?php echo $project['proj_major']; ?></td>
                     <td><?php 
                         $student = selectStd($conn,$project['std_id']);
-                        echo $student['std_fname'] . ' ' . $result['std_lname'];
+                        echo $student['std_fname'] . ' ' . $student['std_lname'];
                     ?></td>
-                    <td><?php echo $project['std_major']; ?></td>
                     <td><a href="edit.php?std_id=<?php echo htmlspecialchars($student['std_id']); ?>">Edit</a></td>
                     <td><a href="delete.php?std_id=<?php echo htmlspecialchars($student['std_id']); ?>">Delete</a></td>
                 </tr>

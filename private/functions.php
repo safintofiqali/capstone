@@ -102,7 +102,7 @@ function selectAllDept($conn){
     return $result;
 }
 
-// Select * students 
+// Select All students 
 function selectAllStudents($conn,$dept) {
     $sql = "select * from students where std_major = '$dept'";
     $result = mysqli_query($conn,$sql);
@@ -116,17 +116,19 @@ function selectLimitedStudents($conn,$dept,$limit) {
     return $result;
 }
 
+// The numbers of rows returned from database
 function numOfRows($result) {
     return mysqli_num_rows($result);
 }
 
+// Return url for redirection
 function redirect_to($string) {
     return url_for($string);
 }
 
 // Select All Projects
-function selectAllProjects($conn,$dept) {
-    $sql = "SELECT * FROM projects where proj_major = '$dept'";
+function selectAllProjects($conn) {
+    $sql = "SELECT * FROM `projects`";
     $result = mysqli_query($conn,$sql);
     return $result;
 }
@@ -136,4 +138,25 @@ function selectLimitedProjects($conn,$dept,$limit) {
     $sql = "select * from projects where proj_major = '$dept' limit $limit,10";
     $result = mysqli_query($conn,$sql);
     return $result;
+}
+
+// Select 5 Recent Projects  
+function selectRecentProject($conn) {
+    $sql = "select * from projects order by proj_date limit 5";
+    $result = mysqli_query($conn,$sql);
+    return $result;
+}
+// Select 4  Projects  
+function selectFourProject($conn,$limit,$posts) {
+    $sql = "SELECT DISTINCT(proj_major) , proj_title , proj_brief, proj_date, proj_id FROM projects ORDER by proj_date LIMIT $limit,$posts";
+    $result = mysqli_query($conn,$sql);
+    return $result;
+}
+
+// Select Single Photo
+function selectPhoto($conn,$proj_id) {
+    $sql = "SELECT * FROM photos where proj_id = $proj_id limit 1";
+    $result = mysqli_query($conn,$sql);
+    $photo = mysqli_fetch_assoc($result);
+    return $photo;
 }
