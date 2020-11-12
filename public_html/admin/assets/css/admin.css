@@ -77,50 +77,57 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center; }
-  /* line 14, ../admin/assets/sass/components/_form.scss */
+  /* line 13, ../admin/assets/sass/components/_form.scss */
   .form__header {
     font-size: 2.5rem;
     color: #E2C044;
     margin-bottom: 2rem; }
-  /* line 20, ../admin/assets/sass/components/_form.scss */
+  /* line 19, ../admin/assets/sass/components/_form.scss */
   .form span {
     margin-right: 1rem; }
-  /* line 24, ../admin/assets/sass/components/_form.scss */
+  /* line 23, ../admin/assets/sass/components/_form.scss */
   .form__group {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 100%; }
-    /* line 31, ../admin/assets/sass/components/_form.scss */
+    /* line 30, ../admin/assets/sass/components/_form.scss */
     .form__group:not(:last-child) {
       margin-bottom: 1.5rem; }
     @media screen and (min-width: 56.25em) {
-      /* line 24, ../admin/assets/sass/components/_form.scss */
+      /* line 23, ../admin/assets/sass/components/_form.scss */
       .form__group {
         width: 50%;
         flex-direction: row; } }
-  /* line 41, ../admin/assets/sass/components/_form.scss */
+  /* line 40, ../admin/assets/sass/components/_form.scss */
   .form__input, .form__label, .form__select {
-    width: 50%;
+    width: 100%;
     padding: 1rem;
     font-size: 1.6rem;
     line-height: 1.2; }
-  /* line 50, ../admin/assets/sass/components/_form.scss */
+    @media screen and (min-width: 56.25em) {
+      /* line 40, ../admin/assets/sass/components/_form.scss */
+      .form__input, .form__label, .form__select {
+        width: 50%;
+        padding: 1rem;
+        font-size: 1.6rem;
+        line-height: 1.2; } }
+  /* line 56, ../admin/assets/sass/components/_form.scss */
   .form__input, .form__select {
     background-color: #E2C044;
     border: none;
     transition: all .5s ease;
     font-family: inherit; }
-    /* line 56, ../admin/assets/sass/components/_form.scss */
+    /* line 63, ../admin/assets/sass/components/_form.scss */
     .form__input:focus, .form__select:focus {
       outline: none;
       background-color: rgba(226, 192, 68, 0.5); }
-  /* line 66, ../admin/assets/sass/components/_form.scss */
+  /* line 73, ../admin/assets/sass/components/_form.scss */
   .form textarea {
     line-height: 1;
     font-family: inherit; }
-  /* line 71, ../admin/assets/sass/components/_form.scss */
+  /* line 78, ../admin/assets/sass/components/_form.scss */
   .form__label {
     text-align: center;
     display: inline-block;
@@ -129,11 +136,11 @@ body {
     color: #E2C044;
     margin-right: 0; }
     @media screen and (min-width: 56.25em) {
-      /* line 71, ../admin/assets/sass/components/_form.scss */
+      /* line 78, ../admin/assets/sass/components/_form.scss */
       .form__label {
         text-align: right;
         margin-right: 1rem; } }
-  /* line 85, ../admin/assets/sass/components/_form.scss */
+  /* line 92, ../admin/assets/sass/components/_form.scss */
   .form__btn {
     width: 50%;
     height: 4rem;
@@ -145,7 +152,7 @@ body {
     display: inline-block;
     transition: all .3s ease;
     cursor: pointer; }
-    /* line 97, ../admin/assets/sass/components/_form.scss */
+    /* line 104, ../admin/assets/sass/components/_form.scss */
     .form__btn:hover {
       transform: translateY(-5px);
       box-shadow: 0 1rem 2rem rgba(30, 32, 25, 0.2); }

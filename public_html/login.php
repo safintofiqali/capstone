@@ -22,17 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo mysqli_error($conn);
             }
             $row = mysqli_fetch_assoc($result);
-            echo "<pre>";
-            print_r($row);
-            echo "</pre>";
             
             if($row) {
                 if(password_verify($password,$row['std_password'])) {
-                    echo "<h1>Works Here</h1>";
-                    echo "HHHHHer";
                     $_SESSION['std_id'] = $row['std_id'];
                     $_SESSION['username'] = $row['std_username'];
-                    header("Location: index.php?" . time());
+                    header("Location: index.php?");
                 }
             }
         }
@@ -49,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if(password_verify($password,$row['inst_password'])) {
                     $_SESSION['inst_id'] = $row['inst_id'];
                     $_SESSION['username'] = $row['inst_username'];
-                    header("Location: index.php?" . time());
+                    header("Location: index.php?");
                 }
             }
         }
