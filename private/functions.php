@@ -160,3 +160,31 @@ function selectPhoto($conn,$proj_id) {
     $photo = mysqli_fetch_assoc($result);
     return $photo;
 }
+
+
+// ----------###---------------
+/* ----- New Functions ---- */
+// ----------###---------------
+   function selectProjects($page) {
+    global $conn;
+    $sql = "SELECT proj_id,proj_title, SUBSTRING(proj_brief, 1, 80) as 'proj_brief' from projects limit $page,4";
+    $result = mysqli_query($conn,$sql);
+    if(!$result) {
+        exit("Query Failed");
+    }
+    return $result;
+   }
+
+   function pagination() {
+       global $conn;
+       $sql = "SELECT * from projects";
+       $result = mysqli_query($conn,$sql);
+       if(!$result) {
+           exit("Query Failed");
+       }
+       $numRows = ceil(mysqli_num_rows($result) / 4);
+       for($i = 0; $i < $numRows; $i++) {
+        //    echo "<a href='" .$_SERVER['PHP_SELF'] . "?page=$i'" . " class='pagination_links'>$i</a>";
+        echo "<button value=$i id='$i' class='card_paginations'>$i</button>";
+       }
+   }

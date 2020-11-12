@@ -87,23 +87,53 @@
             <h2 class="heading-primary">Projects</h2>
         </div>
 
+        <div class="row result">
+            <!-- Starting PHP -->
+            <?php
+            $projects = selectProjects(0);
+            while ($project = mysqli_fetch_assoc($projects)) {
+                $photo = selectPhoto($conn, $project['proj_id']);
+            ?>
+                <div class="col-md-4">
+                    <a href="#">
+                        <div class="card">
+                            <img src="<?php echo url_for('admin/assets/img/projects/') . $photo['photo_destination']; ?>" alt="" class="card__background">
+                            <div class="card__text-box">
+                                <h4 class="card__title"><?php echo $project['proj_title']; ?></h4>
+                                <p class="card__detail"><?php echo $project['proj_brief']; ?></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <?php } ?>
+            <!-- Ending PHP -->
+        </div>
+        <div class="parent">
+            <?php pagination(); ?>
+        </div>
+
         <script>
-                var http = new XMLHttpRequest();
-                http.open("GET","result.php",true);
+    const parent = document.querySelector(".parent");
+    parent.addEventListener("click",output,false);
+    function output(e) {
+        let limit = e.target.id * 4;
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET","result.php?page="+limit,true);
 
-                http.onreadystatechange = function(){   
-                    if(this.status === 200 && this.readyState === 4) {
-                        document.querySelector(".results").innerHTML = this.responseText;
-                    }
-                }
-                http.send();
-            </script>
-        <div class="row results">
-            
+        let row = document.querySelector(".result");
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === 4 && xhr.status === 200) {
+                let result = xhr.responseText;
+                row.style.animation = "move .5s";
+                row.innerHTML = result;
+            }
+        }
+        row.style.animation = "";
+        xhr.send();
+    }
+</script>
 
-            </div>
-
-            <!-- <div class="row">
+        <!-- <div class="row">
             <div class="col-md-4">
                 <a href="#">
                     <div class="card">
