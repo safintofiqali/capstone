@@ -87,7 +87,33 @@
             <h2 class="heading-primary">Projects</h2>
         </div>
 
+        <div class="row result">
+            <!-- Starting PHP -->
+            <?php
+            $projects = selectProjects(0);
+            while ($project = mysqli_fetch_assoc($projects)) {
+                $photo = selectPhoto($conn, $project['proj_id']);
+            ?>
+                <div class="col-md-4">
+                    <a href="#">
+                        <div class="card">
+                            <img src="<?php echo url_for('admin/assets/img/projects/') . $photo['photo_destination']; ?>" alt="" class="card__background">
+                            <div class="card__text-box">
+                                <h4 class="card__title"><?php echo $project['proj_title']; ?></h4>
+                                <p class="card__detail"><?php echo $project['proj_brief']; ?></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <?php } ?>
+            <!-- Ending PHP -->
+        </div>
+        <div class="parent">
+            <?php pagination(); ?>
+        </div>
+
         <script>
+<<<<<<< HEAD
                 let http = new XMLHttpRequest();
                 http.open("GET", "result.php", true);
                 http.onreadystatechange = function() {
@@ -154,34 +180,97 @@
                 </a>
             </div>
         </div> -->
+=======
+            const parent = document.querySelector(".parent");
+            parent.addEventListener("click", output, false);
+
+            function output(e) {
+                let limit = e.target.id * 4;
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET", "result.php?page=" + limit, true);
+
+                let row = document.querySelector(".result");
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        let result = xhr.responseText;
+                        row.style.animation = "move .5s";
+                        row.innerHTML = result;
+                    }
+                }
+                row.style.animation = "";
+                xhr.send();
+            }
+        </script>
+>>>>>>> b452d6b9e040f7014e21e9957316c61faa5cc028
     </section>
 
     <!-- Section About -->
-    <section class="section-share">
+    <section class="section-share" id="shareidea">
         <div class="u-text-center u-margin-bottom-big">
             <h2 class="heading-primary">Share your ideas</h2>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquid dolor iure aspernatur voluptatem omnis, sequi quos sapiente adipisci fugiat dolore aliquam qui esse ad at ut quaerat exercitationem perspiciatis accusantium! Vel vero esse sit?</p>
 
         <!-- Share Idea Form -->
-        <form name="contact-form" class="idea-form" method="post" action="">
-            <ul>
-                <li>
-                    <label for="contact-name">Name:</label>
-                    <input type="text" name="contact-name" id="contact-name" required>
-                </li>
-                <li>
-                    <label for="contact-email">Email:</label>
-                    <input type="email" name="contact-email" id="contact-email" required>
-                </li>
-                <li>
-                    <label for="contact-project">Idea:</label>
-                    <textarea name="contact-project" id="contact-project" rows="10" required></textarea>
-                </li>
-            </ul>
-            <button id="contact-submit" class="btn center" type="submit" name="contact-submit">Share it</button>
+        <form class="idea-form" method="post" action="<?php echo url_for('/formhandler.php'); ?>">
+            <div class="idea-form__group">
+                <label for="name" class="idea-form__label">Idea Title:</label>
+                <input type="text" name="name" id="name" class="idea-form__input">
+                <small id="name"></small>
+            </div>
+            <div class="idea-form__group">
+                <label for="email" class="idea-form__label">Author Email Address:</label>
+                <input type="email" name="email" id="email" class="idea-form__input">
+                <small id="email"></small>
+            </div>
+            <div class="idea-form__group">
+                <label for="idea" class="idea-form__label idea-form__label--textarea">Idea Detail:</label>
+                <textarea name="idea" id="idea" class="idea-form__textarea"></textarea>
+                <small id="idea"></small>
+            </div>
+            <div class="idea-form__group">
+                <label for="major" class="idea-form__label">The idea is useful for:</label>
+                <select name="major" id="major" class="idea-form__select">
+                    <?php
+                    $depts = selectAllDept($conn);
+                    while ($row = mysqli_fetch_assoc($depts)) {
+                    ?>
+                        <option value="<?php echo $row['dept_name']; ?>"><?php echo $row['dept_name']; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <small id="idea"></small>
+            </div>
+            <div class="idea-form__alert">
+                <p id="response"></p>
+            </div>
+            <button class="idea-form__btn" type="submit" name="shareidea">Share it</button>
         </form>
         <!-- Share Idea Form / -->
+
+        <!-- Script for post ajax -->
+        <script>
+            const form = document.querySelector(".idea-form");
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                let name = document.querySelector("#name").value;
+                let email = document.querySelector("#email").value;
+                let idea = document.querySelector("#idea").value;
+                let major = document.querySelector("#major").value;
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", "formhandler.php");
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        document.querySelector("#response").innerText = xhr.responseText;
+                    }
+                }
+                xhr.send("name=" + name + "&email=" + email + "&idea=" + idea + "&major=" + major);
+            });
+        </script>
+        <!-- Script for post ajax / -->
     </section>
 
     <!-- Section Ideas -->

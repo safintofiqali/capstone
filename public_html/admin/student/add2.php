@@ -7,7 +7,7 @@ if (isset($_POST['addproject'])) {
         if ($key === 'addproject') continue;
         $$key = $value;
     }
-    $student = selectStd($conn, 1);
+    $student = selectStd($conn, $_SESSION['std_id']);
     if (!is_empty($_POST)) {
         $std_id = $student['std_id'];
         $inst_id = $student['inst_id'];

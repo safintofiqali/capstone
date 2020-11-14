@@ -18,6 +18,7 @@
                 <th>Project Date</th>
                 <th>Project Major</th>
                 <th>Project Owner</th>
+                <th>Project Status</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -58,6 +59,7 @@
                         $student = selectStd($conn,$project['std_id']);
                         echo $student['std_fname'] . ' ' . $student['std_lname'];
                     ?></td>
+                    <td><?php echo $project['proj_status'] ? "Approved" : "Not Approved"; ?></td>
                     <td><a href="edit.php?std_id=<?php echo htmlspecialchars($student['std_id']); ?>">Edit</a></td>
                     <td><a href="delete.php?std_id=<?php echo htmlspecialchars($student['std_id']); ?>">Delete</a></td>
                 </tr>
