@@ -58,56 +58,100 @@ body {
 
 /* line 1, sass/components/_idea-form.scss */
 .idea-form {
-  margin: 4rem auto 0 auto;
-  width: 80%; }
-  /* line 4, sass/components/_idea-form.scss */
-  .idea-form ul {
-    list-style: none;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 5px;
-    margin-bottom: 2rem; }
-  /* line 11, sass/components/_idea-form.scss */
-  .idea-form li {
-    padding: 1rem; }
-  /* line 15, sass/components/_idea-form.scss */
-  .idea-form label {
-    display: block;
-    font-size: 1.2em;
-    color: #004385;
-    padding-left: 5px; }
-  /* line 22, sass/components/_idea-form.scss */
-  .idea-form input,
-  .idea-form textarea {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem; }
+  /* line 9, sass/components/_idea-form.scss */
+  .idea-form__group {
     width: 100%;
-    padding: 5px;
-    resize: vertical;
-    background-color: rgba(255, 255, 255, 0.3);
-    border: 2px solid #E6AF2E;
-    border-radius: 5px;
-    transition: all .2s; }
-    /* line 31, sass/components/_idea-form.scss */
-    .idea-form input:focus,
-    .idea-form textarea:focus {
-      outline: none;
-      border-color: #E68992; }
-  /* line 37, sass/components/_idea-form.scss */
-  .idea-form .btn {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    /* line 17, sass/components/_idea-form.scss */
+    .idea-form__group:not(:last-child) {
+      margin-bottom: 1rem; }
+    @media screen and (min-width: 56.25em) {
+      /* line 9, sass/components/_idea-form.scss */
+      .idea-form__group {
+        width: 70%;
+        margin: 0 auto;
+        align-items: flex-start;
+        flex-direction: row; } }
+  /* line 29, sass/components/_idea-form.scss */
+  .idea-form__input, .idea-form__label, .idea-form__select {
+    height: 4rem; }
+  /* line 35, sass/components/_idea-form.scss */
+  .idea-form__select {
+    width: 100%;
+    margin-left: 0;
+    font-size: 1.6rem;
+    border: none;
+    outline: none;
+    height: 4rem; }
+    @media screen and (min-width: 56.25em) {
+      /* line 35, sass/components/_idea-form.scss */
+      .idea-form__select {
+        flex: 0 0 60%;
+        font-family: inherit;
+        transition: all .3s ease;
+        margin-left: 1rem; } }
+  /* line 52, sass/components/_idea-form.scss */
+  .idea-form__input, .idea-form__textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    font-family: inherit;
+    border: none;
+    outline: none;
+    transition: all .3s ease; }
+    /* line 63, sass/components/_idea-form.scss */
+    .idea-form__input:focus, .idea-form__textarea:focus {
+      border-bottom: 4px solid #E68992; }
+    @media screen and (min-width: 56.25em) {
+      /* line 52, sass/components/_idea-form.scss */
+      .idea-form__input, .idea-form__textarea {
+        flex: 0 0 60%;
+        margin-left: 1rem;
+        padding: 1.5rem;
+        font-size: 1.6rem;
+        font-family: inherit;
+        border: none;
+        outline: none;
+        transition: all .3s ease; } }
+  /* line 79, sass/components/_idea-form.scss */
+  .idea-form__label {
+    flex: 1;
+    text-align: right;
     font-size: 2rem;
+    color: #E6AF2E; }
+  /* line 86, sass/components/_idea-form.scss */
+  .idea-form__textarea {
+    height: 8rem; }
+  /* line 90, sass/components/_idea-form.scss */
+  .idea-form__btn {
     display: inline-block;
-    padding: 10px 20px;
-    color: #E6AF2E;
-    font-weight: bold;
-    transition: all .3s ease;
-    border: 2px solid #666;
-    border-radius: 5px; }
-    /* line 46, sass/components/_idea-form.scss */
-    .idea-form .btn:hover {
-      background: #666;
-      color: #fff; }
-  /* line 51, sass/components/_idea-form.scss */
-  .idea-form .center {
-    display: table;
-    margin: 0 auto; }
+    margin: 2.5rem 0;
+    font-size: 1.6rem;
+    background-color: #E6AF2E;
+    border: none;
+    outline: none;
+    padding: 1rem 2.5rem; }
+  /* line 100, sass/components/_idea-form.scss */
+  .idea-form__alert {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 1.5rem 0; }
+    /* line 108, sass/components/_idea-form.scss */
+    .idea-form__alert p {
+      color: #E6AF2E !important; }
 
 /* line 1, ../admin/assets/sass/components/_form.scss */
 .form {
