@@ -88,22 +88,27 @@
         </div>
 
         <script>
-                var http = new XMLHttpRequest();
-                http.open("GET","result.php",true);
-
-                http.onreadystatechange = function(){   
-                    if(this.status === 200 && this.readyState === 4) {
-                        document.querySelector(".results").innerHTML = this.responseText;
+                let http = new XMLHttpRequest();
+                http.open("GET", "result.php", true);
+                http.onreadystatechange = function() {
+                    if (this.readyState === 4 && this.status === 200) {
+                        let resp = JSON.parse(this.responseText);
+                        console.log(typeof resp);
+                        resp.forEach(function(data){
+                            console.log(data['dept_id']);
+                            console.log(data['dept_name']);
+                        });
                     }
                 }
                 http.send();
-            </script>
+        </script>
+
         <div class="row results">
-            
 
-            </div>
 
-            <!-- <div class="row">
+        </div>
+
+        <!-- <div class="row">
             <div class="col-md-4">
                 <a href="#">
                     <div class="card">
