@@ -321,6 +321,32 @@ body {
   .card_paginations:not(:last-child) {
     margin-right: 1rem; }
 
+/* line 1, sass/components/_idea-card.scss */
+.idea-card {
+  height: 40rem;
+  padding: 1.5rem;
+  border-radius: 5px;
+  background-image: linear-gradient(to right bottom, rgba(12, 24, 33, 0.4), rgba(12, 24, 33, 0.4)), url("../img/idea.jpg");
+  background-position: 65% bottom;
+  background-size: cover;
+  position: relative; }
+  /* line 10, sass/components/_idea-card.scss */
+  .idea-card__title {
+    color: #004385;
+    text-transform: uppercase; }
+  /* line 15, sass/components/_idea-card.scss */
+  .idea-card__detail {
+    font-size: 1.4rem;
+    color: #DDE3E3;
+    font-weight: 500;
+    text-align: justify;
+    margin: 1rem 0; }
+  /* line 22, sass/components/_idea-card.scss */
+  .idea-card__major {
+    position: absolute;
+    bottom: 1rem;
+    color: #41BBD9; }
+
 /* line 1, sass/components/_recent-card.scss */
 .recent-card {
   background-color: lightgreen;

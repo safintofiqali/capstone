@@ -165,7 +165,7 @@ function selectPhoto($conn,$proj_id) {
 // ----------###---------------
 /* ----- New Functions ---- */
 // ----------###---------------
-   function selectProjects($page) {
+function selectProjects($page) {
     global $conn;
     $sql = "SELECT proj_id,proj_title, SUBSTRING(proj_brief, 1, 80) as 'proj_brief' from projects limit $page,4";
     $result = mysqli_query($conn,$sql);
@@ -175,9 +175,19 @@ function selectPhoto($conn,$proj_id) {
     return $result;
    }
 
-   function pagination() {
+   function selectIdeas($page) {
+    global $conn;
+    $sql = "SELECT idea_id,idea_title, CONCAT(SUBSTRING(idea_detail, 1, 350),' . . . . Read More') as 'idea_detail', idea_major from ideas limit $page,4";
+    $result = mysqli_query($conn,$sql);
+    if(!$result) {
+        exit("Query Failed");
+    }
+    return $result;
+   }
+
+   function pagination($table) {
        global $conn;
-       $sql = "SELECT * from projects";
+       $sql = "SELECT * from $table";
        $result = mysqli_query($conn,$sql);
        if(!$result) {
            exit("Query Failed");

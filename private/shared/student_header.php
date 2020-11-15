@@ -24,43 +24,32 @@ endif; ?>
 </head>
 
 <body>
-
     <header class="header">
-        <div class="admin-info">
-            <div class="admin-info__img-box">
-                <?php
-                    $id = $_SESSION['std_id'];
-                    $sql = "select * from photos where std_id = $id and photo_indication = 0";
-                    $result = mysqli_query($conn, $sql);
-                    $student = selectStd($conn,$id);
-                    $name = $student['std_fname'] . ' ' . $student['std_lname'];
-               
-                if (mysqli_num_rows($result) > 0) {
-                    $row = mysqli_fetch_assoc($result);
-                    $source = $row['photo_destination'];
-                ?>
-                    <img src="<?php echo url_for('/admin/assets/img/' . $source . "?" . time()); ?>" alt="" class="admin-info__img">
-                <?php
-                } else {
-                ?>
-                    <img src="<?php echo url_for('admin/assets/img/default.png'); ?>" alt="" class="admin-info__img">
-
-                <?php
-                }
-                ?>
+        <nav class="nav">
+            <div class="nav__user">
+                <div class="nav__user-img-box">
+                    <img src="../assets/img/default.png" alt="" class="nav__user-img">
+                </div>
+                <h3 class="nav__username">Username</h3>
+                <div class="nav__setting">
+                    <i class="nav__user-icon fas fa-cog"></i>
+                </div>
             </div>
 
-            <h2 class="admin-info__username"><?php echo $name; ?></h2>
-            <a href="<?php echo url_for('/admin/student/setting.php'); ?>">
-                <i class="admin-info__icon fas fa-cog"></i>
-            </a>
+            <div class="nav__navigation">
+                <input type="checkbox" class="nav__toggler" id='toggler'>
+                <label for="toggler" class='nav__button'>
+                    <span class="nav__toggler-icon"></span>
+                </label>
+                <div class="nav__background"></div>
 
-            <div class="admin-info__links">
-                <a href="<?php echo url_for('index.php'); ?>" class="admin-info__link">Home Pages</a>
-                <a href="<?php echo url_for('/admin/student/index.php'); ?>" class="admin-info__link">Admin Panels</a>
-                <a href="<?php echo url_for('/admin/student/add2.php'); ?>" class="admin-info__link">Add Project</a>
-                <a href="<?php echo url_for('/admin/student/edit.php'); ?>" class="admin-info__link">Edit Project</a>
-                <a href="<?php echo url_for('/logout.php'); ?>" class="admin-info__link">Logout</a>
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Admin</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Add Project</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Edit Project</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Comments</a></li>
+                </ul>
             </div>
-        </div>
+        </nav>
     </header>

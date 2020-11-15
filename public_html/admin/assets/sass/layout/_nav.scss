@@ -1,0 +1,134 @@
+.nav {
+    background-image: linear-gradient(to right, rgba($color-cta, .7), rgba($color-cta, .9));
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 5rem;
+    @include respond(phone) {
+        &__navigation {
+            display: flex;
+            align-items: center;
+        }
+        &__list {
+            display: flex;
+        }
+        &__item {
+            display: inline-block;
+
+            &:not(:last-child) {
+                margin-right: 2rem
+            }
+        }
+
+        &__link {
+            font-size: 1.5rem;
+            color: $color-dark-1;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        &__button,
+        &__background {
+            display: none;
+        }
+
+    }
+
+    // MOBILE DESIGN
+    &__user {
+        display: flex;
+        flex: 0 0 25%;
+        align-items: center;
+        &-img-box {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50rem;
+            border: 2px solid $color-border-1;
+            overflow: hidden;
+        }
+        &-img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        &-icon {
+            font-size: 1.6rem;
+            cursor: pointer;
+        }
+    }
+    &__username {
+        font-size: 2rem;
+        margin: 0 2rem
+    }
+// -----
+
+    &__list {
+        display: none
+    }
+
+    &__toggler {
+        display: none;
+    }
+
+    &__button {
+        width: 4rem;
+        height: 4rem;
+        display: inline-block;
+        background-color: $color-border-1;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__toggler-icon {
+        width: 3rem;
+        height: 2px;
+        border-radius: 2px;
+        display: block;
+        background-color: $color-dark-1;
+        position: relative;
+
+        &::before,
+        &::after {
+            display: block;
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: $color-dark-1;
+        }
+
+        &::before {
+            top: -.8rem;
+        }
+
+        &::after {
+            top: .8rem;
+        }
+    }
+
+    &__background {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 5px;
+        background-color: $color-btn-1;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+    }
+
+    &__toggler:checked~&__background {
+        transform: scale(80);
+        // z-index:100;
+    }
+
+    // 
+    // 
+    // 
+
+
+
+}

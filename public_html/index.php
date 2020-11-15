@@ -109,78 +109,10 @@
             <!-- Ending PHP -->
         </div>
         <div class="parent">
-            <?php pagination(); ?>
+            <?php pagination('projects'); ?>
         </div>
 
         <script>
-<<<<<<< HEAD
-                let http = new XMLHttpRequest();
-                http.open("GET", "result.php", true);
-                http.onreadystatechange = function() {
-                    if (this.readyState === 4 && this.status === 200) {
-                        let resp = JSON.parse(this.responseText);
-                        console.log(typeof resp);
-                        resp.forEach(function(data){
-                            console.log(data['dept_id']);
-                            console.log(data['dept_name']);
-                        });
-                    }
-                }
-                http.send();
-        </script>
-
-        <div class="row results">
-
-
-        </div>
-
-        <!-- <div class="row">
-            <div class="col-md-4">
-                <a href="#">
-                    <div class="card">
-                        <img src="assets/img/project-10.jpg" alt="" class="card__background">
-                        <div class="card__text-box">
-                            <h4 class="card__title">Project Name</h4>
-                            <p class="card__detail">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa, ad?</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="#">
-                    <div class="card">
-                        <img src="assets/img/project-11.jpg" alt="" class="card__background">
-                        <div class="card__text-box">
-                            <h4 class="card__title">Project Name</h4>
-                            <p class="card__detail">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa, ad?</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="#">
-                    <div class="card">
-                        <img src="assets/img/project-12.jpg" alt="" class="card__background">
-                        <div class="card__text-box">
-                            <h4 class="card__title">Project Name</h4>
-                            <p class="card__detail">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa, ad?</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="#">
-                    <div class="card">
-                        <img src="assets/img/project-13.jpg" alt="" class="card__background">
-                        <div class="card__text-box">
-                            <h4 class="card__title">Project Name</h4>
-                            <p class="card__detail">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa, ad?</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div> -->
-=======
             const parent = document.querySelector(".parent");
             parent.addEventListener("click", output, false);
 
@@ -201,7 +133,6 @@
                 xhr.send();
             }
         </script>
->>>>>>> b452d6b9e040f7014e21e9957316c61faa5cc028
     </section>
 
     <!-- Section About -->
@@ -279,7 +210,30 @@
             <h2 class="heading-primary">Ideas for your project</h2>
         </div>
 
-        <div class="row">
+        <div class="row result">
+            <!-- Starting PHP -->
+            <?php
+            $ideas = selectIdeas(0);
+            while ($idea = mysqli_fetch_assoc($ideas)) {
+            ?>
+                <div class="col-md-4">
+                    <a href="#" style="text-decoration:none">
+                        <div class="idea-card">
+                                <h2 class="idea-card__title"><?php echo $idea['idea_title']; ?></h4>
+                                    <p class="idea-card__detail"><?php echo $idea['idea_detail']; ?></p>
+                                    <p class="idea-card__major"><?php echo $idea['idea_major']; ?></p>
+                        </div>
+                    </a>
+                </div>
+            <?php } ?>
+            <!-- Ending PHP -->
+        </div>
+
+        <div class="parent">
+            <?php pagination('ideas'); ?>
+        </div>
+
+        <!-- <div class="row">
             <div class="col-md-4">
                 <a href="#">
                     <div class="card">
@@ -324,7 +278,9 @@
                     </div>
                 </a>
             </div>
-        </div>
+        </div> -->
+
+
     </section>
 </main>
 

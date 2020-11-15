@@ -1,13 +1,4 @@
-<<<<<<< HEAD
-<?php require_once("../private/init.php"); ?>
-<?php
-$data;
-$projects = selectAllDept($conn);
-while ($project = mysqli_fetch_assoc($projects)) { 
-    $data[] = $project;
-}
-echo json_encode($data);
-=======
+
 <?php
 require_once("../private/init.php");
 
@@ -32,5 +23,4 @@ while ($project = mysqli_fetch_assoc($projects)) {
 <?php } ?>
 <?php
 }
->>>>>>> b452d6b9e040f7014e21e9957316c61faa5cc028
 ?>
