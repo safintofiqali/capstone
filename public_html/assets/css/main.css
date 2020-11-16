@@ -788,30 +788,35 @@ body {
 /* line 1, sass/pages/_view.scss */
 .section-demo {
   padding: 5rem; }
-  /* line 4, sass/pages/_view.scss */
+  /* line 3, sass/pages/_view.scss */
   .section-demo__title {
     font-size: 3.5rem;
     color: #E2C044;
     margin-bottom: 2rem; }
-  /* line 10, sass/pages/_view.scss */
+  /* line 9, sass/pages/_view.scss */
   .section-demo__author {
     font-size: 1.8rem;
     color: rgba(0, 67, 133, 0.8); }
-  /* line 15, sass/pages/_view.scss */
+  /* line 14, sass/pages/_view.scss */
   .section-demo__major {
     font-size: 1.3rem;
     color: rgba(0, 67, 133, 0.6); }
-  /* line 20, sass/pages/_view.scss */
+  /* line 19, sass/pages/_view.scss */
   .section-demo__detail {
     margin: 3rem 0;
     font-size: 1.6rem;
     line-height: 1.8; }
-  /* line 26, sass/pages/_view.scss */
+  /* line 25, sass/pages/_view.scss */
   .section-demo__images {
-    display: flex; }
-  /* line 29, sass/pages/_view.scss */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; }
+  /* line 33, sass/pages/_view.scss */
   .section-demo__img {
-    width: 100%; }
+    width: 100%;
+    display: block; }
 
 /* line 1, sass/pages/_projects.scss */
 .main {
@@ -821,18 +826,22 @@ body {
 /* line 6, sass/pages/_projects.scss */
 .aside {
   background-color: #A5B6B6;
-  flex: 0 0 25%;
   padding: 2rem; }
-  /* line 11, sass/pages/_projects.scss */
-  .aside__title {
-    font-size: 3rem;
-    margin-bottom: 3rem; }
-  /* line 16, sass/pages/_projects.scss */
-  .aside__filter-title {
-    margin: 1.5rem 0; }
-  /* line 20, sass/pages/_projects.scss */
-  .aside ul {
-    list-style: none; }
-    /* line 22, sass/pages/_projects.scss */
-    .aside ul li {
-      margin: 1rem 0; }
+  @media screen and (min-width: 56.25em) {
+    /* line 6, sass/pages/_projects.scss */
+    .aside {
+      flex: 0 0 25%;
+      position: static; }
+      /* line 16, sass/pages/_projects.scss */
+      .aside__title {
+        font-size: 3rem;
+        margin-bottom: 3rem; }
+      /* line 20, sass/pages/_projects.scss */
+      .aside__filter-title {
+        margin: 1.5rem 0; }
+      /* line 23, sass/pages/_projects.scss */
+      .aside ul {
+        list-style: none; }
+      /* line 26, sass/pages/_projects.scss */
+      .aside li {
+        margin: 1rem 0; } }

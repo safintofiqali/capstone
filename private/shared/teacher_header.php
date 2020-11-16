@@ -88,7 +88,6 @@ endif; ?>
                     <li class="nav__item"><a href="<?php echo url_for('/index.php'); ?>" class="nav__link">Home</a></li>
                     <li class="nav__item"><a href="<?php echo url_for('/admin/teacher/index.php'); ?>" class="nav__link">Admin</a></li>
                     <li class="nav__item"><a href="<?php echo url_for('/admin/teacher/add.php'); ?>" class="nav__link">Add Student</a></li>
-                    <li class="nav__item"><a href="<?php echo url_for('/admin/teacher/view.php'); ?>" class="nav__link">Edit Student</a></li>
                     <li class="nav__item"><a href="<?php echo url_for('/logout.php'); ?>" class="nav__link">Logout</a></li>
                 </ul>
             </div>

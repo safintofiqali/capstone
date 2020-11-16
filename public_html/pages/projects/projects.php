@@ -35,6 +35,7 @@
             ?>
         </ul>
     </aside>
+
     <section class="section-container results">
     <?php
         $projects = selectAllProjects($conn);
@@ -60,7 +61,6 @@
 </main>
 
 <!-- Ajax -->
-
 <script>
     let values = [];
     let major = document.querySelector("#majors");

@@ -177,4 +177,21 @@
     </section>
 </main>
 
+<!-- Notification Script -->
+<script>
+    function isProjectAdded() {
+        let xhr = new XMLHttpRequest();
+        let url = "<?php echo url_for("/result.php?newProj"); ?>";
+        xhr.open("GET",url,true);
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === 4 && xhr.status === 200) {
+                
+            }
+        }
+    }
+</script>
+<!-- Notification Script / -->
+
 <?php include(SHARED_PATH . '/student_footer.php'); ?>
+
+

@@ -76,7 +76,6 @@ endif; ?>
                     <li class="nav__item"><a href="<?php echo url_for('/index.php'); ?>" class="nav__link">Home</a></li>
                     <li class="nav__item"><a href="<?php echo url_for('/admin/student/index.php'); ?>" class="nav__link">Admin</a></li>
                     <li class="nav__item"><a href="<?php echo url_for('/admin/student/add2.php'); ?>" class="nav__link">Add Project</a></li>
-                    <li class="nav__item"><a href="<?php echo url_for('/admin/student/edit.php?std_id=' . $id) ?>" class="nav__link">Edit Project</a></li>
                     <li class="nav__item"><a href="<?php echo url_for('/logout.php'); ?>" class="nav__link">Logout</a></li>
                 </ul>
             </div>

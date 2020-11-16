@@ -39,13 +39,9 @@
     <?php
         $ideas = selectAllIdeas();
         while ($idea = mysqli_fetch_assoc($ideas)) {
-            // $photo = selectPhoto($conn, $project['proj_id']);
         ?>
             <a href="<?php echo url_for('/pages/ideas/view.php?idea_id=' . $idea['idea_id']); ?>" class="project__link">
                 <div class="project">
-                    <div class="project__img-box">
-                        <!-- <img src="<?php // echo url_for("/admin/assets/img/projects/" . $photo['photo_destination']) ?>" alt="" class="project__img"> -->
-                    </div>
                     <div class="project__text">
                         <h3 class="project__title"><i class="fas fa-project-diagram"></i> &nbsp; <?php echo $idea['idea_title'] ?></h3>
                         <h4 class="project__major"><i class="fas fa-university"></i> &nbsp; <?php echo $idea['idea_major'] ?></h4>

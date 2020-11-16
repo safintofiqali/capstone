@@ -6,9 +6,6 @@
     if(isset($_GET['idea_id'])) {
         $id = $_GET['idea_id'];
         $idea = selectIdea($id);
-        // $student = selectStd($conn,$project['std_id']);
-        // $photos = selectPhotos($conn,$id);
-        // $file = selectFile($conn,$id);
     }
 ?>
 
