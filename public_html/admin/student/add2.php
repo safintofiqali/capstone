@@ -170,8 +170,6 @@ if (isset($_POST['addproject'])) {
     $pusher->trigger('my-channel', 'my-event', $data);
 }
 
-
-
 ?>
 <form action="add2.php" class='form' method="post" enctype="multipart/form-data">
     <div class="form__header">

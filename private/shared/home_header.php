@@ -25,10 +25,10 @@
         <div class="nav__background"></div>
 
         <ul class="nav__list">
-            <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">Projects</a></li>
+            <li class="nav__item"><a href="<?php echo url_for('/index.php'); ?>" class="nav__link">Home</a></li>
+            <li class="nav__item"><a href="<?php echo url_for('/pages/projects/projects.php'); ?>" class="nav__link">Projects</a></li>
             <li class="nav__item"><a href="#" class="nav__link">Share Idea</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">Ideas</a></li>
+            <li class="nav__item"><a href="<?php echo url_for('/pages/ideas/ideas.php'); ?>" class="nav__link">Ideas</a></li>
             <?php if (isset($_SESSION['std_id'])) :  ?>
                 <li class="nav__item"><a href="<?php echo url_for('/admin/student/index.php') ?>" class="nav__link">Profile</a></li>
                 <li class="nav__item"><a href="<?php echo url_for('/logout.php') ?>" class="nav__link">Logout</a></li>

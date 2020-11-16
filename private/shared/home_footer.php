@@ -5,6 +5,6 @@
 </p>
 </footer>
 <!-- Slide Script -->
-<script src="assets/js/slide.js"></script>
+
 </body>
 </html>

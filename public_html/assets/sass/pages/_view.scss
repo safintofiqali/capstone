@@ -1,0 +1,39 @@
+.section-demo {
+    padding:5rem;
+
+    &__title {
+        font-size:3.5rem;
+        color:$color-border-1;
+        margin-bottom: 2rem;
+    }
+
+    &__author {
+        font-size: 1.8rem;
+        color:rgba($color-heading-secondary,.8);
+    }
+
+    &__major {
+        font-size:1.3rem;
+        color:rgba($color-heading-secondary,.6);
+    }
+
+    &__detail {
+        margin: 3rem 0;
+        font-size: 1.6rem;
+        line-height: 1.8;
+    }
+
+    &__images {
+        width:100%;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    &__img {
+        width:100%;
+        display:block;
+    }
+
+}

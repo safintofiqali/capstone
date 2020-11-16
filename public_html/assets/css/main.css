@@ -394,6 +394,40 @@ body {
         color: #F4F6F6;
         font-weight: 400; } }
 
+/* line 1, sass/components/_project.scss */
+.project {
+  background-color: #0C1821;
+  display: flex;
+  padding: 2rem;
+  border-bottom: 5px solid #F4F6F6; }
+  /* line 7, sass/components/_project.scss */
+  .project__img-box {
+    flex: 0 0 40%;
+    background-color: burlywood; }
+  /* line 12, sass/components/_project.scss */
+  .project__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
+  /* line 18, sass/components/_project.scss */
+  .project__text {
+    margin-left: 2.5rem; }
+  /* line 22, sass/components/_project.scss */
+  .project__title {
+    color: #E2C044; }
+  /* line 26, sass/components/_project.scss */
+  .project__major {
+    color: #41BBD9; }
+  /* line 30, sass/components/_project.scss */
+  .project__brief {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-top: 1rem; }
+  /* line 36, sass/components/_project.scss */
+  .project__link {
+    text-decoration: none;
+    display: block; }
+
 /* line 1, sass/components/_slide.scss */
 .slide-container {
   position: relative;
@@ -750,3 +784,55 @@ body {
 /* line 43, sass/pages/_home.scss */
 .section-ideas {
   padding: 3rem 2rem; }
+
+/* line 1, sass/pages/_view.scss */
+.section-demo {
+  padding: 5rem; }
+  /* line 4, sass/pages/_view.scss */
+  .section-demo__title {
+    font-size: 3.5rem;
+    color: #E2C044;
+    margin-bottom: 2rem; }
+  /* line 10, sass/pages/_view.scss */
+  .section-demo__author {
+    font-size: 1.8rem;
+    color: rgba(0, 67, 133, 0.8); }
+  /* line 15, sass/pages/_view.scss */
+  .section-demo__major {
+    font-size: 1.3rem;
+    color: rgba(0, 67, 133, 0.6); }
+  /* line 20, sass/pages/_view.scss */
+  .section-demo__detail {
+    margin: 3rem 0;
+    font-size: 1.6rem;
+    line-height: 1.8; }
+  /* line 26, sass/pages/_view.scss */
+  .section-demo__images {
+    display: flex; }
+  /* line 29, sass/pages/_view.scss */
+  .section-demo__img {
+    width: 100%; }
+
+/* line 1, sass/pages/_projects.scss */
+.main {
+  padding: 4rem 0;
+  display: flex; }
+
+/* line 6, sass/pages/_projects.scss */
+.aside {
+  background-color: #A5B6B6;
+  flex: 0 0 25%;
+  padding: 2rem; }
+  /* line 11, sass/pages/_projects.scss */
+  .aside__title {
+    font-size: 3rem;
+    margin-bottom: 3rem; }
+  /* line 16, sass/pages/_projects.scss */
+  .aside__filter-title {
+    margin: 1.5rem 0; }
+  /* line 20, sass/pages/_projects.scss */
+  .aside ul {
+    list-style: none; }
+    /* line 22, sass/pages/_projects.scss */
+    .aside ul li {
+      margin: 1rem 0; }

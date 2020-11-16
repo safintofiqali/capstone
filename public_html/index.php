@@ -16,7 +16,7 @@
                     while ($project = mysqli_fetch_assoc($projects)) {
                         $photo = selectPhoto($conn, $project['proj_id']);
                     ?>
-                        <a href="<?php echo url_for('/view.php?proj_id=') . $project['proj_id']; ?>">
+                        <a href="<?php echo url_for('/pages/projects/view.php?proj_id=' . $project['proj_id']); ?>">
                             <div class="slide">
                                 <img src="<?php echo url_for('admin/assets/img/projects/') . $photo['photo_destination']; ?>" alt="" class="slide__background">
                                 <div class="slide__text-box">
@@ -40,13 +40,15 @@
                         $photo = selectPhoto($conn, $project['proj_id']);
                     ?>
                         <div class="col-2">
-                            <div class="recent-card">
-                                <img src="<?php echo url_for('admin/assets/img/projects/') . $photo['photo_destination']; ?>" alt="" class="recent-card__background">
-                                <div class="recent-card__text-box">
-                                    <h4 class="recent-card__title"><?php echo $project['proj_title']; ?></h4>
-                                    <p class="recent-card__detail">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, voluptates.</p>
+                            <a href="<?php echo url_for('/pages/projects/view.php?proj_id=' . $project['proj_id']); ?>">
+                                <div class="recent-card">
+                                    <img src="<?php echo url_for('admin/assets/img/projects/') . $photo['photo_destination']; ?>" alt="" class="recent-card__background">
+                                    <div class="recent-card__text-box">
+                                        <h4 class="recent-card__title"><?php echo $project['proj_title']; ?></h4>
+                                        <p class="recent-card__detail">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, voluptates.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     <?php } ?>
                 </div>
@@ -82,7 +84,6 @@
 
     <!-- Section Projects -->
     <section class="section-projects">
-
         <div class="u-text-center u-margin-bottom-big">
             <h2 class="heading-primary">Projects</h2>
         </div>
@@ -95,7 +96,7 @@
                 $photo = selectPhoto($conn, $project['proj_id']);
             ?>
                 <div class="col-md-4">
-                    <a href="#">
+                    <a href="<?php echo url_for('/pages/projects/view.php?proj_id=' . $project['proj_id']); ?>">
                         <div class="card">
                             <img src="<?php echo url_for('admin/assets/img/projects/') . $photo['photo_destination']; ?>" alt="" class="card__background">
                             <div class="card__text-box">
@@ -219,9 +220,9 @@
                 <div class="col-md-4">
                     <a href="#" style="text-decoration:none">
                         <div class="idea-card">
-                                <h2 class="idea-card__title"><?php echo $idea['idea_title']; ?></h4>
-                                    <p class="idea-card__detail"><?php echo $idea['idea_detail']; ?></p>
-                                    <p class="idea-card__major"><?php echo $idea['idea_major']; ?></p>
+                            <h2 class="idea-card__title"><?php echo $idea['idea_title']; ?></h4>
+                                <p class="idea-card__detail"><?php echo $idea['idea_detail']; ?></p>
+                                <p class="idea-card__major"><?php echo $idea['idea_major']; ?></p>
                         </div>
                     </a>
                 </div>
@@ -284,5 +285,6 @@
     </section>
 </main>
 
+<script src="<?php echo url_for("/assets/js/slide.js")?>"></script>
 
 <?php include_once(SHARED_PATH . '/home_footer.php'); ?>
