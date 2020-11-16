@@ -1,25 +1,6 @@
 <?php require_once("../../../private/init.php"); ?>
 <?php $page_title = "Instructor - Settings"; ?>
 <?php include(SHARED_PATH . '/student_header.php'); ?>
-<?php 
-
-$loc = '../assets/vendor/autoload.php';
-require "$loc" ;
-
-$options = array(
-  'cluster' => 'ap2',
-  'useTLS' => true
-);
-$pusher = new Pusher\Pusher(
-  '1b0c08215023fb129faa',
-  '2bc56ffe75c0a75ddecb',
-  '1105551',
-  $options
-);
-
-$data['message'] = 'Safin is testing';
-$pusher->trigger('my-channel', 'my-event', $data);
-?>
 
 <?php
 if (isset($_POST['submitphoto'])) {
@@ -69,22 +50,20 @@ if (isset($_POST['update'])) {
         if ($key === 'update') continue;
         $$key = $value;
     }
-    $inst_id = $inst['inst_id'];
-    // $sql = "UPDATE instructors set inst_fname = ? , inst_lname = ? , inst_username = ? , inst_password = ?, inst_dept = ? , inst_email = ?, inst_position = ? where inst_id = $inst_id";
+    $std_id = $student['std_id'];
     $sql = "UPDATE students SET";
-    $sql .= "`student_fname` = ? , ";
-    $sql .= "`student_lname` = ? ,";
-    $sql .= "`student_username` = ? ,";
-    $sql .= "`student_password` = ? ,";
-    $sql .= "`student_major` = ? ,";
-    $sql .= "`student_email` = ?,";
-    $sql .= "`inst_password` = ? where std_id = '$inst_id'";
+    $sql .= "`std_fname` = ? , ";
+    $sql .= "`std_lname` = ? ,";
+    $sql .= "`std_username` = ? ,";
+    $sql .= "`std_password` = ? ,";
+    $sql .= "`std_major` = ? ,";
+    $sql .= "`std_email` = ? where std_id = '$std_id'";
     $result = mysqli_query($conn, $sql);
 
     $stmt = mysqli_stmt_init($conn);
     if (mysqli_stmt_prepare($stmt, $sql)) {
         $hashed = password_hash($pwd, PASSWORD_DEFAULT);
-        mysqli_stmt_bind_param($stmt, "sssssss", $fname, $lname, $username, $hashed, $dept, $email, $position);
+        mysqli_stmt_bind_param($stmt, "ssssss", $fname, $lname, $username, $hashed, $major, $email);
         $result = mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
         header("Location:setting.php?Done");
@@ -108,21 +87,21 @@ if (isset($_POST['update'])) {
 </form>
 
 
-<form action="<?php echo url_for('/admin/teacher/setting.php'); ?>" method="post" enctype="multipart/form-data" class='form'>
+<form action="<?php echo url_for('/admin/student/setting.php'); ?>" method="post" enctype="multipart/form-data" class='form'>
     <div class="form__header">
         <h2>Change User Info</h2>
     </div>
     <div class='form__group'>
         <label for="fname" class="form__label">First Name</label>
-        <input class="form__input" type="text" name="fname" value="<?php echo $inst['inst_fname']; ?>" id='fname'>
+        <input class="form__input" type="text" name="fname" value="<?php echo $student['std_fname']; ?>" id='fname'>
     </div>
     <div class="form__group">
         <label for="lname" class="form__label">Last Name</label>
-        <input class="form__input" type="text" name="lname" value="<?php echo $inst['inst_lname']; ?>" id='lname'>
+        <input class="form__input" type="text" name="lname" value="<?php echo $student['std_lname']; ?>" id='lname'>
     </div>
     <div class="form__group">
         <label for="username" class="form__label">User Name</label>
-        <input class="form__input" type="text" name="username" value="<?php echo $inst['inst_username']; ?>" id='username'>
+        <input class="form__input" type="text" name="username" value="<?php echo $student['std_username']; ?>" id='username'>
     </div>
     <div class="form__group">
         <label for="pwd" class="form__label">Password</label>
@@ -130,14 +109,14 @@ if (isset($_POST['update'])) {
     </div>
     <!-- Department Section -->
     <div class="form__group">
-        <label for="dept" class="form__label">Department</label>
-        <select class="form__input" name="dept" id="dept">
+        <label for="major" class="form__label">Major</label>
+        <select class="form__input" name="major" id="major">
             <option>Select Department</option>
             <?php
             $dept = selectAllDept($conn);
             while ($row = mysqli_fetch_assoc($dept)) :
             ?>
-                <option value="<?php echo $row['dept_name']; ?>" <?php if ($inst['inst_dept'] === $row['dept_name']) {
+                <option value="<?php echo $row['dept_name']; ?>" <?php if ($student['std_major'] === $row['dept_name']) {
                                                                         echo " selected";
                                                                     } ?>>
                     <?php echo $row['dept_name']; ?>
@@ -148,11 +127,7 @@ if (isset($_POST['update'])) {
     </div>
     <div class="form__group">
         <label for="email" class="form__label">Email</label>
-        <input class="form__input" type="text" name="email" value="<?php echo $inst['inst_email']; ?>" id='email'>
-    </div>
-    <div class="form__group">
-        <label for="position" class="form__label">Position</label>
-        <input class="form__input" type="text" name="position" value="<?php echo $inst['inst_position']; ?>" id='position'>
+        <input class="form__input" type="text" name="email" value="<?php echo $student['std_email']; ?>" id='email'>
     </div>
     <input type="submit" value="Update" name='update' class="form__btn">
 </form>

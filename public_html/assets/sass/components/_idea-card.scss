@@ -1,0 +1,28 @@
+.idea-card {
+    height:40rem;
+    padding:1.5rem;
+    border-radius: 5px;
+    background-image: linear-gradient(to right bottom,rgba($color-secondary,.4),rgba($color-secondary,.4)),url("../img/idea.jpg");
+    background-position: 65% bottom;
+    background-size: cover;
+    position: relative;
+
+    &__title {
+        color:$color-heading-secondary;
+        text-transform: uppercase;
+
+    }
+    &__detail {
+        font-size:1.4rem;
+        color:$color-primary;
+        font-weight: 500;
+        text-align: justify;
+        margin: 1rem 0;
+    }
+    &__major {
+        position: absolute;
+        bottom: 1rem;
+        color:$color-heading-tertiary
+    }
+
+}

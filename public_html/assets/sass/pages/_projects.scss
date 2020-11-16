@@ -1,0 +1,30 @@
+.main {
+    padding: 4rem 0;
+    display: flex;
+}
+
+.aside {
+    background-color: $color-primary-dark;
+    padding: 2rem;
+
+
+    
+
+@include respond(tab-port) {
+    flex: 0 0 25%;
+    position: static;
+    &__title {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+    }
+    &__filter-title {
+        margin: 1.5rem 0;
+    }
+    ul {
+        list-style: none;
+    }
+    li {
+        margin: 1rem 0;
+    }
+}
+}

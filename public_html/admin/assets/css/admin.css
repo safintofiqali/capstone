@@ -142,7 +142,7 @@ body {
         margin-right: 1rem; } }
   /* line 92, ../admin/assets/sass/components/_form.scss */
   .form__btn {
-    width: 50%;
+    width: 100%;
     height: 4rem;
     border: none;
     outline: none;
@@ -156,6 +156,19 @@ body {
     .form__btn:hover {
       transform: translateY(-5px);
       box-shadow: 0 1rem 2rem rgba(30, 32, 25, 0.2); }
+    @media screen and (min-width: 56.25em) {
+      /* line 92, ../admin/assets/sass/components/_form.scss */
+      .form__btn {
+        width: 50%;
+        height: 4rem;
+        border: none;
+        outline: none;
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        background-color: #E55934;
+        display: inline-block;
+        transition: all .3s ease;
+        cursor: pointer; } }
 
 /* line 1, ../admin/assets/sass/components/_nav-card.scss */
 .navcard-container {
@@ -271,9 +284,10 @@ body {
 /* line 1, ../admin/assets/sass/components/_user-table.scss */
 .table {
   border-collapse: collapse;
+  max-width: 60rem;
   font-size: 1.4rem;
-  min-width: 40rem;
-  margin: 2.5rem auto; }
+  margin: 2.5rem auto;
+  overflow: hidden; }
   /* line 8, ../admin/assets/sass/components/_user-table.scss */
   .table thead {
     background-color: #E2C044;
@@ -323,6 +337,165 @@ body {
       transform: translateY(-3px);
       box-shadow: 0 1rem 2rem rgba(30, 32, 25, 0.15); }
 
+/* line 1, ../admin/assets/sass/layout/_header.scss */
+.header {
+  position: relative; }
+
+/* line 1, ../admin/assets/sass/layout/_nav.scss */
+.nav {
+  background-color: #1E2019;
+  width: 100%;
+  height: 8rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem; }
+  /* line 16, ../admin/assets/sass/layout/_nav.scss */
+  .nav__user {
+    display: flex;
+    align-items: center; }
+  /* line 20, ../admin/assets/sass/layout/_nav.scss */
+  .nav__user-img-box {
+    width: 8rem;
+    height: 8rem;
+    clip-path: circle(40% at 50% 50%);
+    -webkit-clip-path: circle(40% at 50% 50%);
+    overflow: hidden; }
+  /* line 29, ../admin/assets/sass/layout/_nav.scss */
+  .nav__user-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; }
+  /* line 34, ../admin/assets/sass/layout/_nav.scss */
+  .nav__username {
+    font-size: 2rem;
+    color: #E2C044;
+    margin: 0 2rem; }
+  /* line 39, ../admin/assets/sass/layout/_nav.scss */
+  .nav__user-icon {
+    font-size: 3rem;
+    color: #D3D0CB;
+    cursor: pointer; }
+    /* line 43, ../admin/assets/sass/layout/_nav.scss */
+    .nav__user-icon:hover {
+      color: #E2C044; }
+  /* line 49, ../admin/assets/sass/layout/_nav.scss */
+  .nav__toggler {
+    display: none; }
+  /* line 50, ../admin/assets/sass/layout/_nav.scss */
+  .nav__button {
+    width: 4rem;
+    height: 4rem;
+    display: inline-block;
+    background-color: brown;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; }
+  /* line 62, ../admin/assets/sass/layout/_nav.scss */
+  .nav__toggler-icon {
+    width: 2.5rem;
+    height: 2px;
+    border-radius: 5px;
+    display: block;
+    background-color: burlywood;
+    position: relative; }
+    /* line 70, ../admin/assets/sass/layout/_nav.scss */
+    .nav__toggler-icon::before, .nav__toggler-icon::after {
+      width: 100%;
+      height: 100%;
+      content: "";
+      display: block;
+      background-color: burlywood;
+      position: absolute; }
+    /* line 79, ../admin/assets/sass/layout/_nav.scss */
+    .nav__toggler-icon::before {
+      top: -.7rem; }
+    /* line 80, ../admin/assets/sass/layout/_nav.scss */
+    .nav__toggler-icon::after {
+      top: .7rem; }
+  /* line 83, ../admin/assets/sass/layout/_nav.scss */
+  .nav__background {
+    width: 100%;
+    height: 0;
+    display: inline-block;
+    background-color: brown;
+    position: absolute;
+    top: 8rem;
+    left: 0;
+    z-index: 100;
+    transition: all .3s ease-in-out;
+    opacity: 0; }
+  /* line 96, ../admin/assets/sass/layout/_nav.scss */
+  .nav__toggler:checked ~ .nav__background {
+    height: 100vh;
+    opacity: 1; }
+  /* line 101, ../admin/assets/sass/layout/_nav.scss */
+  .nav__toggler:checked ~ .nav__navigation > .nav__list {
+    opacity: 1;
+    visibility: visible; }
+  /* line 107, ../admin/assets/sass/layout/_nav.scss */
+  .nav__navigation {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    z-index: 1002;
+    transform: translateX(-50%); }
+  /* line 117, ../admin/assets/sass/layout/_nav.scss */
+  .nav__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .4s ease; }
+  /* line 128, ../admin/assets/sass/layout/_nav.scss */
+  .nav__item {
+    display: inline-block;
+    margin: 1rem 0; }
+  /* line 132, ../admin/assets/sass/layout/_nav.scss */
+  .nav__link {
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #D3D0CB; }
+  @media screen and (min-width: 56.25em) {
+    /* line 143, ../admin/assets/sass/layout/_nav.scss */
+    .nav__button {
+      display: none; }
+    /* line 146, ../admin/assets/sass/layout/_nav.scss */
+    .nav__navigation {
+      position: static;
+      transform: translateX(0);
+      width: fit-content;
+      align-self: center;
+      top: 0;
+      left: 0;
+      height: fit-content; }
+    /* line 155, ../admin/assets/sass/layout/_nav.scss */
+    .nav__list {
+      opacity: 1;
+      visibility: visible;
+      flex-direction: row; }
+    /* line 160, ../admin/assets/sass/layout/_nav.scss */
+    .nav__item {
+      margin: 0 2rem; }
+    /* line 163, ../admin/assets/sass/layout/_nav.scss */
+    .nav__link {
+      font-size: 1.6rem;
+      font-weight: 500; }
+      /* line 167, ../admin/assets/sass/layout/_nav.scss */
+      .nav__link:hover {
+        color: #E2C044; } }
+
 /* line 1, ../admin/assets/sass/pages/_teachers.scss */
 section.section-navcards {
   min-height: 90vh;
@@ -337,33 +510,41 @@ section {
 
 /* line 13, ../admin/assets/sass/pages/_teachers.scss */
 .section-user {
+  max-width: 100%;
+  overflow: scroll;
   background-image: linear-gradient(to right bottom, rgba(252, 246, 238, 0.7), rgba(246, 227, 203, 0.7)); }
-  /* line 20, ../admin/assets/sass/pages/_teachers.scss */
+  /* line 22, ../admin/assets/sass/pages/_teachers.scss */
   .section-user__link-wrapper {
     margin: 0 auto;
     text-align: center; }
-  /* line 24, ../admin/assets/sass/pages/_teachers.scss */
+  /* line 26, ../admin/assets/sass/pages/_teachers.scss */
   .section-user .pagination__links {
     font-size: 2rem;
     margin: 0 auto;
     color: #E55934; }
-    /* line 28, ../admin/assets/sass/pages/_teachers.scss */
+    /* line 30, ../admin/assets/sass/pages/_teachers.scss */
     .section-user .pagination__links:not(:last-of-type) {
       margin-right: 1rem; }
 
-/* line 33, ../admin/assets/sass/pages/_teachers.scss */
+/* line 35, ../admin/assets/sass/pages/_teachers.scss */
 .section-project {
+  max-width: 100%;
+  overflow: scroll;
   background-image: linear-gradient(to right bottom, rgba(252, 246, 238, 0.7), rgba(246, 227, 203, 0.7)); }
 
-/* line 40, ../admin/assets/sass/pages/_teachers.scss */
+/* line 44, ../admin/assets/sass/pages/_teachers.scss */
 .section-idea {
+  max-width: 100%;
+  overflow: scroll;
   background-image: linear-gradient(to right bottom, rgba(240, 208, 168, 0.7), rgba(234, 189, 133, 0.7)); }
 
-/* line 48, ../admin/assets/sass/pages/_teachers.scss */
+/* line 54, ../admin/assets/sass/pages/_teachers.scss */
 .section-comment {
+  max-width: 100%;
+  overflow: scroll;
   background-image: linear-gradient(to right bottom, rgba(252, 246, 238, 0.7), rgba(246, 227, 203, 0.7)); }
 
-/* line 57, ../admin/assets/sass/pages/_teachers.scss */
+/* line 65, ../admin/assets/sass/pages/_teachers.scss */
 #addProject {
   padding: 8rem 0;
   background-color: gold; }

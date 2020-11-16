@@ -1,9 +1,9 @@
 .table {
     border-collapse: collapse;
-
+    max-width: 60rem;
     font-size:1.4rem;
-    min-width:40rem;
     margin:2.5rem auto;
+    overflow: hidden;
 
     thead {
         background-color: $color-border-1;

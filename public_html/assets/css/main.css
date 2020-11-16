@@ -321,6 +321,32 @@ body {
   .card_paginations:not(:last-child) {
     margin-right: 1rem; }
 
+/* line 1, sass/components/_idea-card.scss */
+.idea-card {
+  height: 40rem;
+  padding: 1.5rem;
+  border-radius: 5px;
+  background-image: linear-gradient(to right bottom, rgba(12, 24, 33, 0.4), rgba(12, 24, 33, 0.4)), url("../img/idea.jpg");
+  background-position: 65% bottom;
+  background-size: cover;
+  position: relative; }
+  /* line 10, sass/components/_idea-card.scss */
+  .idea-card__title {
+    color: #004385;
+    text-transform: uppercase; }
+  /* line 15, sass/components/_idea-card.scss */
+  .idea-card__detail {
+    font-size: 1.4rem;
+    color: #DDE3E3;
+    font-weight: 500;
+    text-align: justify;
+    margin: 1rem 0; }
+  /* line 22, sass/components/_idea-card.scss */
+  .idea-card__major {
+    position: absolute;
+    bottom: 1rem;
+    color: #41BBD9; }
+
 /* line 1, sass/components/_recent-card.scss */
 .recent-card {
   background-color: lightgreen;
@@ -367,6 +393,40 @@ body {
         font-size: 1.6rem;
         color: #F4F6F6;
         font-weight: 400; } }
+
+/* line 1, sass/components/_project.scss */
+.project {
+  background-color: #0C1821;
+  display: flex;
+  padding: 2rem;
+  border-bottom: 5px solid #F4F6F6; }
+  /* line 7, sass/components/_project.scss */
+  .project__img-box {
+    flex: 0 0 40%;
+    background-color: burlywood; }
+  /* line 12, sass/components/_project.scss */
+  .project__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
+  /* line 18, sass/components/_project.scss */
+  .project__text {
+    margin-left: 2.5rem; }
+  /* line 22, sass/components/_project.scss */
+  .project__title {
+    color: #E2C044; }
+  /* line 26, sass/components/_project.scss */
+  .project__major {
+    color: #41BBD9; }
+  /* line 30, sass/components/_project.scss */
+  .project__brief {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-top: 1rem; }
+  /* line 36, sass/components/_project.scss */
+  .project__link {
+    text-decoration: none;
+    display: block; }
 
 /* line 1, sass/components/_slide.scss */
 .slide-container {
@@ -724,3 +784,64 @@ body {
 /* line 43, sass/pages/_home.scss */
 .section-ideas {
   padding: 3rem 2rem; }
+
+/* line 1, sass/pages/_view.scss */
+.section-demo {
+  padding: 5rem; }
+  /* line 3, sass/pages/_view.scss */
+  .section-demo__title {
+    font-size: 3.5rem;
+    color: #E2C044;
+    margin-bottom: 2rem; }
+  /* line 9, sass/pages/_view.scss */
+  .section-demo__author {
+    font-size: 1.8rem;
+    color: rgba(0, 67, 133, 0.8); }
+  /* line 14, sass/pages/_view.scss */
+  .section-demo__major {
+    font-size: 1.3rem;
+    color: rgba(0, 67, 133, 0.6); }
+  /* line 19, sass/pages/_view.scss */
+  .section-demo__detail {
+    margin: 3rem 0;
+    font-size: 1.6rem;
+    line-height: 1.8; }
+  /* line 25, sass/pages/_view.scss */
+  .section-demo__images {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; }
+  /* line 33, sass/pages/_view.scss */
+  .section-demo__img {
+    width: 100%;
+    display: block; }
+
+/* line 1, sass/pages/_projects.scss */
+.main {
+  padding: 4rem 0;
+  display: flex; }
+
+/* line 6, sass/pages/_projects.scss */
+.aside {
+  background-color: #A5B6B6;
+  padding: 2rem; }
+  @media screen and (min-width: 56.25em) {
+    /* line 6, sass/pages/_projects.scss */
+    .aside {
+      flex: 0 0 25%;
+      position: static; }
+      /* line 16, sass/pages/_projects.scss */
+      .aside__title {
+        font-size: 3rem;
+        margin-bottom: 3rem; }
+      /* line 20, sass/pages/_projects.scss */
+      .aside__filter-title {
+        margin: 1.5rem 0; }
+      /* line 23, sass/pages/_projects.scss */
+      .aside ul {
+        list-style: none; }
+      /* line 26, sass/pages/_projects.scss */
+      .aside li {
+        margin: 1rem 0; } }
