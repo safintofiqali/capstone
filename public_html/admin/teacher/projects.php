@@ -25,12 +25,18 @@ if (isset($_GET['update'])) {
     </div>
 
     <div class="checkboxes">
-        <input type="checkbox" id="all">
-        <label for="all">All</label>
-        <input type="checkbox" id="approved">
-        <label for="approved">Approved</label>
-        <input type="checkbox" id="unapproved">
-        <label for="unapproved">Unapproved</label>
+        <div>
+            <input type="checkbox" id="all">
+            <label for="all">All</label>
+        </div>
+        <div>
+            <input type="checkbox" id="approved">
+            <label for="approved">Approved</label>
+        </div>
+        <div>
+            <input type="checkbox" id="unapproved">
+            <label for="unapproved">Unapproved</label>
+        </div>
     </div>
 
     <table class="table">
@@ -82,11 +88,20 @@ if (isset($_GET['update'])) {
                         echo $student['std_fname'] . ' ' . $student['std_lname'];
                         ?></td>
                     <td><?php echo $project['proj_status'] ? "Approved" : "Waiting"; ?></td>
-                    <td>
-                        <form action="projects.php?proj_id=<?php echo $project['proj_id']; ?>" method='get'>
-                            <button type="submit" name="update" class="approve" value="<?php echo $project['proj_id']; ?>">Approve</button>
-                        </form>
-                    </td>
+                    <?php if ($project['proj_status'] == 0) {
+                    ?>
+                        <td>
+                            <form action="projects.php?proj_id=<?php echo $project['proj_id']; ?>" method='get'>
+                                <button type="submit" name="update" class="approve" value="<?php echo $project['proj_id']; ?>">Approve</button>
+                            </form>
+                        </td>
+                    <?php
+                    } else {
+                        ?>
+                        <td>approved</td>
+                        <?php
+                    }
+                    ?>
                 </tr>
             <?php } ?>
         </tbody>

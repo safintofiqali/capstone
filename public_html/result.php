@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> 0cc3c555e21cf2d4d308e595227380d5e7aa97c3
 <?php
 require_once("../private/init.php");
 

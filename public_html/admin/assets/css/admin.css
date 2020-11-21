@@ -337,6 +337,21 @@ body {
       transform: translateY(-3px);
       box-shadow: 0 1rem 2rem rgba(30, 32, 25, 0.15); }
 
+/* line 1, ../admin/assets/sass/components/_checkboxes.scss */
+.checkboxes {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  /* line 6, ../admin/assets/sass/components/_checkboxes.scss */
+  .checkboxes div {
+    margin: 2rem;
+    display: flex;
+    align-items: center; }
+  /* line 11, ../admin/assets/sass/components/_checkboxes.scss */
+  .checkboxes label {
+    margin-left: .5rem;
+    font-size: 1.6rem; }
+
 /* line 1, ../admin/assets/sass/layout/_header.scss */
 .header {
   position: relative; }

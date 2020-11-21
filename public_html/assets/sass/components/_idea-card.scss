@@ -1,16 +1,17 @@
 .idea-card {
     height:40rem;
-    padding:1.5rem;
+    padding:1rem;
     border-radius: 5px;
     background-image: linear-gradient(to right bottom,rgba($color-secondary,.4),rgba($color-secondary,.4)),url("../img/idea.jpg");
     background-position: 65% bottom;
     background-size: cover;
     position: relative;
+    overflow: hidden;
 
     &__title {
         color:$color-heading-secondary;
         text-transform: uppercase;
-
+        font-size: 1.8rem;
     }
     &__detail {
         font-size:1.4rem;
