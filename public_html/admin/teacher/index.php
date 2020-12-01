@@ -25,7 +25,7 @@
                     </div>
                 </a>
 
-                <a href="#ideas" class="navcard__wrapper-link">
+                <a href="<?php echo url_for('/admin/teacher/ideas.php')?>" class="navcard__wrapper-link">
                     <div class="navcard navcard--ideas">
                         <div class="navcard__icon">
                             <i class="far fa-lightbulb"></i>
@@ -51,62 +51,31 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>User Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Project</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
+                    <th>View</th>
+                    <th>Title</th>
+                    <th>Detail</th>
+                    <th>Date</th>
+                    <th>Major</th>
+                    <th>Author Email</th>
+                    <th>Status</th>
 
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>14</td>
-                    <td>Safin</td>
-                    <td>Tofiq</td>
-                    <td>Capstone Project Repository</td>
-                    <td>Edit</td>
-                    <td>View</td>
-                    <td>Delete</td>
-                </tr>
-                <tr>
-                    <td>14</td>
-                    <td>Safin</td>
-                    <td>Tofiq</td>
-                    <td>Capstone Project Repository</td>
-                    <td>Edit</td>
-                    <td>View</td>
-                    <td>Delete</td>
-                </tr>
-                <tr>
-                    <td>14</td>
-                    <td>Safin</td>
-                    <td>Tofiq</td>
-                    <td>Capstone Project Repository</td>
-                    <td>Edit</td>
-                    <td>View</td>
-                    <td>Delete</td>
-                </tr>
-                <tr>
-                    <td>14</td>
-                    <td>Safin</td>
-                    <td>Tofiq</td>
-                    <td>Capstone Project Repository</td>
-                    <td>Edit</td>
-                    <td>View</td>
-                    <td>Delete</td>
-                </tr>
-                <tr>
-                    <td>14</td>
-                    <td>Safin</td>
-                    <td>Tofiq</td>
-                    <td>Capstone Project Repository</td>
-                    <td>Edit</td>
-                    <td>View</td>
-                    <td>Delete</td>
-                </tr>
+                <?php
+                $ideas = selectAll('ideas');
+                while ($idea = mysqli_fetch_assoc($ideas)) {
+                ?>
+                    <tr>
+                        <td><a href="<?php echo url_for('/pages/ideas/view.php?idea_id=' . $idea['idea_id']); ?>">View</a></td>
+                            <td><?php echo $idea['idea_title']; ?></td>
+                            <td><?php echo substr($idea['idea_detail'], 0, 50); ?></td>
+                            <td><?php echo $idea['idea_date']; ?></td>
+                            <td><?php echo $idea['idea_major']; ?></td>
+                            <td><?php echo $idea['idea_author_email']; ?></td>
+                            <td><?php echo $idea['idea_status'] ? 'Approved' : 'Waiting'; ?></td>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
     </section>
@@ -182,10 +151,10 @@
     function isProjectAdded() {
         let xhr = new XMLHttpRequest();
         let url = "<?php echo url_for("/result.php?newProj"); ?>";
-        xhr.open("GET",url,true);
-        xhr.onreadystatechange = function () {
-            if(xhr.readyState === 4 && xhr.status === 200) {
-                
+        xhr.open("GET", url, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+
             }
         }
     }
@@ -193,5 +162,3 @@
 <!-- Notification Script / -->
 
 <?php include(SHARED_PATH . '/student_footer.php'); ?>
-
-

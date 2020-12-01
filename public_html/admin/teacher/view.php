@@ -10,7 +10,7 @@
     <div class="u-text-center u-margin-bottom-big u-margin-top-medium">
         <form action="view.php" method="get" class='search'>
             <input type="text" name="value" placeholder="First Name, Last name, Username, or email" class="search__input">
-            <input type="submit" value="Search" name='search' class='search__btn' >
+            <input type="submit" value="Search" name='search' class='search__btn'>
         </form>
     </div>
     <table class="table">
@@ -28,33 +28,32 @@
         </thead>
         <tbody>
             <?php
-
-            if(isset($_GET['page'])) {
+            if (isset($_GET['page'])) {
                 $page = $_GET['page'];
             } else {
                 $page = "";
             }
 
-            if($page == "" || $page == 1) {
+            if ($page == "" || $page == 1) {
                 $page_count = 0;
             } else {
                 $page_count = ($page * 10) - 10;
             }
 
-            $inst = selectInst($conn, $_SESSION['inst_id']);
-                $inst_dept = $inst['inst_dept'];
+            $inst = selectUserWithId('instructors', $_SESSION['inst_id']);
+            $inst_dept = $inst['inst_dept'];
 
-            if(isset($_GET['search'])) {
-                $search = mysqli_real_escape_string($conn,$_GET['value']);
+            if (isset($_GET['search'])) {
+                $search = mysqli_real_escape_string($conn, $_GET['value']);
                 $sql = "SELECT * FROM students WHERE std_major='$inst_dept' and std_id = '$search' OR std_fname LIKE '%$search%' OR std_lname LIKE '%$search%' OR std_email LIKE '%$search%';";
-                $result = mysqli_query($conn,$sql);
-                if(!$result) {
+                $result = mysqli_query($conn, $sql);
+                if (!$result) {
                     echo mysqli_error($conn);
                 } else {
                     echo mysqli_num_rows($result);
                 }
             } else {
-                $result = selectLimitedStudents($conn, $inst_dept,$page_count);
+                $result = selectLimitedStudents($inst_dept, $page_count,$_SESSION['inst_id']);
             }
             while ($student = mysqli_fetch_assoc($result)) { ?>
                 <tr>
@@ -73,10 +72,12 @@
     <div class="section-user__link-wrapper">
         <?php
         // Makin Pagination
-        $rows = numOfRows(selectAllStudents($conn,$inst_dept));
+        $rows = numOfRows(selectInstStudents($_SESSION['inst_id']));
         $pages = ceil($rows / 10);
-        for ($i = 1; $i <= $pages; $i++) {
-            echo "<a href='view.php?users&page=$i' class='pagination__links'>$i</a>";
+        if(numOfRows($result) > 0 ) {
+            for ($i = 1; $i <= $pages; $i++) {
+                echo "<a href='view.php?page=$i' class='pagination__links'>$i</a>";
+            }   
         }
         ?>
     </div>

@@ -1,6 +1,7 @@
 .project {
     background-color: $color-secondary;
     display: flex;
+    width:100%;
     padding: 2rem;
         border-bottom:5px solid $color-primary-light;
 
@@ -36,5 +37,6 @@
     &__link {
         text-decoration: none;
         display:block;
+        width:100%;
     }
 }

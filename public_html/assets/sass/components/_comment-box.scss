@@ -1,0 +1,29 @@
+.comment {
+    background-color: $color-primary-light;
+    border-radius: 3px;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    width:70%;
+
+    &:not(:last-child) {
+        margin-bottom:1rem;
+    }
+    &-box {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__author {
+        padding:1rem;
+        background-color: $color-heading-primary;
+    }
+    &__date {
+        font-size: 1.2rem;
+        text-align: right;
+        padding:.5rem 2rem;
+        border-top:2px solid rgba(0,0,0,.15);
+    }
+    
+}
+

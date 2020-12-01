@@ -1,15 +1,17 @@
 .table {
     border-collapse: collapse;
-    max-width: 60rem;
+    // max-width: 80rem;
     font-size:1.4rem;
     margin:2.5rem auto;
     overflow: hidden;
+    width:100rem;
 
     thead {
         background-color: $color-border-1;
         color:$color-dark-1;
         text-align: left;
     }
+
 
     th,
     td {

@@ -16,7 +16,7 @@ if (isset($_POST['addstudent'])) {
     }
 
     // Check Username and Email availability
-    if (usernameExists($conn, $username, $email)) {
+    if (usernameExists($username, $email)) {
         header("Location: add.php?err=taken");
         exit();
     }
@@ -105,7 +105,7 @@ if (isset($_POST['addstudent'])) {
         <select name="major" id="major" class="form__select">
             <option class="form__option" selected>Select student major</option>
             <?php
-            $dept = selectAllDept($conn);
+            $dept = selectAllDept();
             while ($row = mysqli_fetch_assoc($dept)) :
             ?>
                 <option value="<?php echo $row['dept_name']; ?>">

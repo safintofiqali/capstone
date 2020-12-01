@@ -2,13 +2,18 @@
 <?php include_once(SHARED_PATH . '/home_header.php'); ?>
 
 <main class="main">
+    <!-- Aside Filter Section -->
     <aside class="aside">
+        <!-- Aside Filter Title -->
         <h2 class="aside__title"><i class="fas fa-filter"></i> &nbsp; Filter Project</h2>
 
+        <!-- Aside Filter Major Title -->
         <h3 class="aside__filter-title">Major</h3>
         <ul class="aside__filter-list" id="majors">
+
             <?php
-            $depts = selectAllDept($conn);
+            // Retrieving All the departments
+            $depts = selectAllDept();
             while ($dept = mysqli_fetch_assoc($depts)) {
             ?>
                 <li class="aside__filter-item">
@@ -19,28 +24,13 @@
             }
             ?>
         </ul>
-        <h3 class="aside__filter-title">Year</h3>
-        <ul>
-
-            <?php
-            $depts = selectAllDept($conn);
-            for ($i = 9; $i >= 0; $i--) {
-            ?>
-                <li class="aside__filter-item">
-                    <input type="checkbox" id="<?php echo "201" . $i ?>" class='aside__filter-input'>
-                    <label for="<?php echo "201" . $i ?>" class="aside__filter-label"><?php echo "201" . $i ?></label>
-                </li>
-            <?php
-            }
-            ?>
-        </ul>
     </aside>
 
     <section class="section-container results">
-    <?php
-        $projects = selectAllProjects($conn);
+        <?php
+        $projects = selectAllProjects();
         while ($project = mysqli_fetch_assoc($projects)) {
-            $photo = selectPhoto($conn, $project['proj_id']);
+            $photo = selectPhoto($project['proj_id']);
         ?>
             <a href="<?php echo url_for('/pages/projects/view.php?proj_id=' . $project['proj_id']); ?>" class="project__link">
                 <div class="project">
@@ -63,22 +53,38 @@
 <!-- Ajax -->
 <script>
     let values = [];
+    let years = [];
     let major = document.querySelector("#majors");
     let checkboxes = document.querySelectorAll(".major");
+    let yearChecks = document.querySelectorAll(".year");
 
-        checkboxes.forEach(function(check) {
+    checkboxes.forEach(function(check) {
         check.addEventListener("change", function() {
             if (check.checked) {
                 values.push(check.value);
                 sendData(values);
             } else {
                 let index = values.indexOf(check.value);
-                values.splice(index,1);
+                values.splice(index, 1);
                 sendData(values);
             }
         });
     });
-    
+
+    yearChecks.forEach(function(year) {
+        year.addEventListener("change", function() {
+            
+            if (year.checked) {
+                years.push(year.value);
+                sendData(years);
+            } else {
+                let index = years.indexOf(year.value);
+                years.splice(index, 1);
+                sendData(years);
+            }
+        });
+    });
+
 
     function sendData(values) {
         let xhr = new XMLHttpRequest();
@@ -89,6 +95,22 @@
                 let target = document.querySelector(".results");
                 target.innerHTML = xhr.responseText;
                 console.log(xhr.responseText);
+            }
+        }
+        xhr.send();
+    }
+
+    function sendData(years) {
+        console.log(years)
+        let xhr = new XMLHttpRequest();
+        let url = "<?php echo url_for("/result.php?year="); ?>"
+        xhr.open("GET", url + years, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                let target = document.querySelector(".results");
+                target.innerHTML = xhr.responseText;
+                // console.log(xhr.responseText);
+                alert(xhr.responseText)
             }
         }
         xhr.send();

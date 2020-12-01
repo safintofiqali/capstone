@@ -5,7 +5,7 @@
 if(!isset($_GET['proj_id'])) {
     header("Location:" . url_for('/index.php'));
 } else {
-    $project = selectProjectWithId($conn,$_GET['proj_id']);
+    $project = selectProjectWithId($_GET['proj_id']);
 }
 ?>
 
@@ -16,7 +16,7 @@ if (isset($_POST['addproject'])) {
         if ($key === 'addproject') continue;
         $$key = $value;
     }
-    $student = selectStd($conn, $_SESSION['std_id']);
+    $student = selectUserWithId('students', $_SESSION['std_id']);
     if (!is_empty($_POST)) {
         $std_id = $student['std_id'];
         $inst_id = $student['inst_id'];
@@ -201,7 +201,7 @@ if (isset($_POST['addproject'])) {
         <select name="major" class='form__select'>
             <option value="">Project Major</option>
             <?php
-            $dept = selectAllDept($conn);
+            $dept = selectAllDept();
             while ($row = mysqli_fetch_assoc($dept)) :
             ?>
                 <option value="<?php echo $row['dept_name']; ?>" <?php if($row['dept_name'] === $project['proj_major']){ echo " selected"; } ; ?>>
@@ -220,7 +220,6 @@ if (isset($_POST['addproject'])) {
         <label for="files" class="form__label">Upload Document(s)</label>
         <input type="file" name="files[]" id="files" multiple class="form__input">
     </div>
-
    
-    <input type="submit" value="Add Your Project" name='addproject' class='form__btn'>
+    <input type="submit" value="Edit Your Project" name='addproject' class='form__btn'>
 </form>

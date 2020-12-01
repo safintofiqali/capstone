@@ -46,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['username'] = $row['inst_username'];
                     header("Location: index.php?");
                 }
+               
             }
         }
     }

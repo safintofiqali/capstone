@@ -1,6 +1,9 @@
 <?php require_once("../../../private/init.php"); ?>
 <?php $page_title = "Students - Admin Area"; ?>
 <?php include(SHARED_PATH . '/student_header.php'); ?>
+<?php $project = selectStdProjectWithId($_SESSION['std_id']);
+        $proj_id = $project['proj_id'];
+?>
 
 
 <main>
@@ -16,34 +19,23 @@
                         </div>
                         <h3 class="navcard__name">Add Project</h3>
                     </div>
-                </a>
-
-                <a href="index.php#edit-project" class='navcard__wrapper-link'>
+                </a>              
+                <a href="<?php echo url_for('/pages/projects/view.php?proj_id=' . $proj_id); ?> " class='navcard__wrapper-link'>
                     <div class="navcard navcard--projects">
                         <div class="navcard__icon">
-                            <i class="fas fa-edit"></i>
+                        <i class="fas fa-project-diagram"></i>
                         </div>
-                        <h3 class="navcard__name">Edit Project</h3>
+                        <h3 class="navcard__name">My Project</h3>
                     </div>
-                </a>
-                <a href="" class='navcard__wrapper-link'>
+                </a>              
+                <a href="<?php echo url_for('/admin/student/edit.php?proj_id='.$proj_id);?>" class='navcard__wrapper-link'>
                     <div class="navcard navcard--ideas">
                         <div class="navcard__icon">
-                            <i class="far fa-lightbulb"></i>
+                        <i class="fas fa-edit"></i>
                         </div>
-                        <h3 class="navcard__name">Ideas</h3>
+                        <h3 class="navcard__name">Edit</h3>
                     </div>
-                </a>
-
-                <a href="" class='navcard__wrapper-link'>
-                    <div class="navcard navcard--comments">
-                        <div class="navcard__icon">
-                            <i class="fas fa-comment"></i>
-                        </div>
-                        <h3 class="navcard__name">Comments</h3>
-                    </div>
-                </a>
-                
+                </a>              
             </div>
         </div>
     </section>

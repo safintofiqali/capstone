@@ -24,14 +24,18 @@ body {
   margin-bottom: 6rem; }
 
 /* line 7, ../admin/assets/sass/base/_utilities.scss */
+.u-margin-top-big {
+  margin-top: 6rem; }
+
+/* line 10, ../admin/assets/sass/base/_utilities.scss */
 .u-margin-bottom-medium {
   margin-bottom: 2.5rem; }
 
-/* line 10, ../admin/assets/sass/base/_utilities.scss */
+/* line 13, ../admin/assets/sass/base/_utilities.scss */
 .u-margin-bottom-small {
   margin-bottom: 1rem; }
 
-/* line 13, ../admin/assets/sass/base/_utilities.scss */
+/* line 16, ../admin/assets/sass/base/_utilities.scss */
 .u-margin-top-medium {
   margin-top: 1.5rem; }
 
@@ -175,18 +179,21 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); }
+  transform: translate(-50%, -50%);
+  width: 100%; }
 
-/* line 8, ../admin/assets/sass/components/_nav-card.scss */
+/* line 9, ../admin/assets/sass/components/_nav-card.scss */
 .navcard-row {
   display: flex;
   align-items: center;
-  justify-content: center; }
-  /* line 13, ../admin/assets/sass/components/_nav-card.scss */
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap; }
+  /* line 16, ../admin/assets/sass/components/_nav-card.scss */
   .navcard-row:not(:last-child) {
     margin-bottom: 1rem; }
 
-/* line 19, ../admin/assets/sass/components/_nav-card.scss */
+/* line 22, ../admin/assets/sass/components/_nav-card.scss */
 .navcard {
   box-shadow: 0 1rem 2rem rgba(30, 32, 25, 0.3);
   padding: 1rem;
@@ -199,13 +206,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center; }
-  /* line 33, ../admin/assets/sass/components/_nav-card.scss */
+  /* line 37, ../admin/assets/sass/components/_nav-card.scss */
   .navcard:hover {
     transform: translateY(-5px);
     box-shadow: 0 1.5rem 2.5rem rgba(30, 32, 25, 0.3); }
-  /* line 38, ../admin/assets/sass/components/_nav-card.scss */
-  .navcard:not(:last-child) {
-    margin-right: 1rem; }
   /* line 42, ../admin/assets/sass/components/_nav-card.scss */
   .navcard__icon {
     font-size: 5rem; }
@@ -228,10 +232,9 @@ body {
   .navcard__wrapper-link {
     text-decoration: none;
     display: block;
-    color: inherit; }
-    /* line 79, ../admin/assets/sass/components/_nav-card.scss */
-    .navcard__wrapper-link:not(:last-child) {
-      margin-right: 1rem; }
+    color: inherit;
+    margin-top: 1rem;
+    margin-right: 1rem; }
 
 /* line 1, ../admin/assets/sass/components/_admin-info.scss */
 .admin-info {
@@ -261,52 +264,55 @@ body {
     color: #D3D0CB;
     margin: 0 1.4rem; }
   /* line 28, ../admin/assets/sass/components/_admin-info.scss */
+  .admin-info__notification {
+    margin-left: 1rem; }
+  /* line 31, ../admin/assets/sass/components/_admin-info.scss */
   .admin-info__icon {
     font-size: 3rem;
     color: rgba(211, 208, 203, 0.8);
     align-self: center;
     cursor: pointer; }
-    /* line 33, ../admin/assets/sass/components/_admin-info.scss */
+    /* line 36, ../admin/assets/sass/components/_admin-info.scss */
     .admin-info__icon:hover {
       color: #D3D0CB; }
-  /* line 38, ../admin/assets/sass/components/_admin-info.scss */
+  /* line 41, ../admin/assets/sass/components/_admin-info.scss */
   .admin-info__links {
     margin-left: auto; }
-  /* line 42, ../admin/assets/sass/components/_admin-info.scss */
+  /* line 45, ../admin/assets/sass/components/_admin-info.scss */
   .admin-info__link {
     font-size: 1.6rem;
     color: #9BC53D;
     text-decoration: none; }
-    /* line 46, ../admin/assets/sass/components/_admin-info.scss */
+    /* line 49, ../admin/assets/sass/components/_admin-info.scss */
     .admin-info__link:not(:last-child) {
       margin-right: 1.5rem; }
 
 /* line 1, ../admin/assets/sass/components/_user-table.scss */
 .table {
   border-collapse: collapse;
-  max-width: 60rem;
   font-size: 1.4rem;
   margin: 2.5rem auto;
-  overflow: hidden; }
-  /* line 8, ../admin/assets/sass/components/_user-table.scss */
+  overflow: hidden;
+  width: 100rem; }
+  /* line 9, ../admin/assets/sass/components/_user-table.scss */
   .table thead {
     background-color: #E2C044;
     color: #1E2019;
     text-align: left; }
-  /* line 14, ../admin/assets/sass/components/_user-table.scss */
+  /* line 16, ../admin/assets/sass/components/_user-table.scss */
   .table th,
   .table td {
     padding: 1rem 2rem; }
-  /* line 18, ../admin/assets/sass/components/_user-table.scss */
+  /* line 20, ../admin/assets/sass/components/_user-table.scss */
   .table td {
     border-right: 1px solid rgba(30, 32, 25, 0.2); }
-  /* line 22, ../admin/assets/sass/components/_user-table.scss */
+  /* line 24, ../admin/assets/sass/components/_user-table.scss */
   .table tbody tr {
     border-bottom: 2px solid #F0D0A8; }
-    /* line 25, ../admin/assets/sass/components/_user-table.scss */
+    /* line 27, ../admin/assets/sass/components/_user-table.scss */
     .table tbody tr:nth-child(even) {
       background-color: rgba(211, 208, 203, 0.7); }
-    /* line 28, ../admin/assets/sass/components/_user-table.scss */
+    /* line 30, ../admin/assets/sass/components/_user-table.scss */
     .table tbody tr:last-of-type {
       border-bottom: 5px solid #EABD85; }
 
@@ -352,6 +358,60 @@ body {
     margin-left: .5rem;
     font-size: 1.6rem; }
 
+/* line 1, ../admin/assets/sass/components/_actions.scss */
+.actions {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem 0; }
+  /* line 7, ../admin/assets/sass/components/_actions.scss */
+  .actions__btn {
+    border: none;
+    width: 10rem;
+    height: 4rem;
+    display: inline-block;
+    transition: all .4s;
+    cursor: pointer;
+    font-size: 1.6rem; }
+    /* line 16, ../admin/assets/sass/components/_actions.scss */
+    .actions__btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4); }
+    /* line 21, ../admin/assets/sass/components/_actions.scss */
+    .actions__btn--approve {
+      background-color: #9BC53D; }
+    /* line 24, ../admin/assets/sass/components/_actions.scss */
+    .actions__btn--delete {
+      background-color: #E55934; }
+
+/* line 1, ../admin/assets/sass/components/_notifications.scss */
+.notification {
+  background-color: #F6E3CB;
+  width: 50%;
+  margin: 0 auto; }
+  /* line 5, ../admin/assets/sass/components/_notifications.scss */
+  .notification ul {
+    list-style: none; }
+  /* line 8, ../admin/assets/sass/components/_notifications.scss */
+  .notification li {
+    display: inline-block;
+    width: 100%;
+    padding: 2rem;
+    background-color: #5BC0EB;
+    border-bottom: 3px solid #D3D0CB;
+    font-size: 2rem; }
+    /* line 15, ../admin/assets/sass/components/_notifications.scss */
+    .notification li span {
+      font-weight: 700;
+      color: #E55934;
+      margin-right: 1rem; }
+    /* line 21, ../admin/assets/sass/components/_notifications.scss */
+    .notification li:nth-child(odd) {
+      background-color: rgba(91, 192, 235, 0.4); }
+    /* line 25, ../admin/assets/sass/components/_notifications.scss */
+    .notification li:hover {
+      background-color: rgba(226, 192, 68, 0.4); }
+
 /* line 1, ../admin/assets/sass/layout/_header.scss */
 .header {
   position: relative; }
@@ -391,14 +451,15 @@ body {
   .nav__user-icon {
     font-size: 3rem;
     color: #D3D0CB;
-    cursor: pointer; }
-    /* line 43, ../admin/assets/sass/layout/_nav.scss */
+    cursor: pointer;
+    margin-left: 1rem; }
+    /* line 44, ../admin/assets/sass/layout/_nav.scss */
     .nav__user-icon:hover {
       color: #E2C044; }
-  /* line 49, ../admin/assets/sass/layout/_nav.scss */
+  /* line 50, ../admin/assets/sass/layout/_nav.scss */
   .nav__toggler {
     display: none; }
-  /* line 50, ../admin/assets/sass/layout/_nav.scss */
+  /* line 53, ../admin/assets/sass/layout/_nav.scss */
   .nav__button {
     width: 4rem;
     height: 4rem;
@@ -410,7 +471,7 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 1000; }
-  /* line 62, ../admin/assets/sass/layout/_nav.scss */
+  /* line 65, ../admin/assets/sass/layout/_nav.scss */
   .nav__toggler-icon {
     width: 2.5rem;
     height: 2px;
@@ -418,7 +479,7 @@ body {
     display: block;
     background-color: burlywood;
     position: relative; }
-    /* line 70, ../admin/assets/sass/layout/_nav.scss */
+    /* line 73, ../admin/assets/sass/layout/_nav.scss */
     .nav__toggler-icon::before, .nav__toggler-icon::after {
       width: 100%;
       height: 100%;
@@ -426,13 +487,13 @@ body {
       display: block;
       background-color: burlywood;
       position: absolute; }
-    /* line 79, ../admin/assets/sass/layout/_nav.scss */
+    /* line 82, ../admin/assets/sass/layout/_nav.scss */
     .nav__toggler-icon::before {
-      top: -.7rem; }
-    /* line 80, ../admin/assets/sass/layout/_nav.scss */
+      top: -0.7rem; }
+    /* line 85, ../admin/assets/sass/layout/_nav.scss */
     .nav__toggler-icon::after {
-      top: .7rem; }
-  /* line 83, ../admin/assets/sass/layout/_nav.scss */
+      top: 0.7rem; }
+  /* line 90, ../admin/assets/sass/layout/_nav.scss */
   .nav__background {
     width: 100%;
     height: 0;
@@ -442,17 +503,17 @@ body {
     top: 8rem;
     left: 0;
     z-index: 100;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     opacity: 0; }
-  /* line 96, ../admin/assets/sass/layout/_nav.scss */
+  /* line 103, ../admin/assets/sass/layout/_nav.scss */
   .nav__toggler:checked ~ .nav__background {
     height: 100vh;
     opacity: 1; }
-  /* line 101, ../admin/assets/sass/layout/_nav.scss */
+  /* line 108, ../admin/assets/sass/layout/_nav.scss */
   .nav__toggler:checked ~ .nav__navigation > .nav__list {
     opacity: 1;
     visibility: visible; }
-  /* line 107, ../admin/assets/sass/layout/_nav.scss */
+  /* line 114, ../admin/assets/sass/layout/_nav.scss */
   .nav__navigation {
     height: 100%;
     width: 100%;
@@ -461,7 +522,7 @@ body {
     left: 50%;
     z-index: 1002;
     transform: translateX(-50%); }
-  /* line 117, ../admin/assets/sass/layout/_nav.scss */
+  /* line 124, ../admin/assets/sass/layout/_nav.scss */
   .nav__list {
     list-style: none;
     display: flex;
@@ -470,12 +531,12 @@ body {
     justify-content: center;
     visibility: hidden;
     opacity: 0;
-    transition: all .4s ease; }
-  /* line 128, ../admin/assets/sass/layout/_nav.scss */
+    transition: all 0.4s ease; }
+  /* line 135, ../admin/assets/sass/layout/_nav.scss */
   .nav__item {
     display: inline-block;
     margin: 1rem 0; }
-  /* line 132, ../admin/assets/sass/layout/_nav.scss */
+  /* line 139, ../admin/assets/sass/layout/_nav.scss */
   .nav__link {
     font-size: 2rem;
     text-decoration: none;
@@ -483,10 +544,10 @@ body {
     font-weight: 700;
     color: #D3D0CB; }
   @media screen and (min-width: 56.25em) {
-    /* line 143, ../admin/assets/sass/layout/_nav.scss */
+    /* line 149, ../admin/assets/sass/layout/_nav.scss */
     .nav__button {
       display: none; }
-    /* line 146, ../admin/assets/sass/layout/_nav.scss */
+    /* line 152, ../admin/assets/sass/layout/_nav.scss */
     .nav__navigation {
       position: static;
       transform: translateX(0);
@@ -495,19 +556,19 @@ body {
       top: 0;
       left: 0;
       height: fit-content; }
-    /* line 155, ../admin/assets/sass/layout/_nav.scss */
+    /* line 161, ../admin/assets/sass/layout/_nav.scss */
     .nav__list {
       opacity: 1;
       visibility: visible;
       flex-direction: row; }
-    /* line 160, ../admin/assets/sass/layout/_nav.scss */
+    /* line 166, ../admin/assets/sass/layout/_nav.scss */
     .nav__item {
       margin: 0 2rem; }
-    /* line 163, ../admin/assets/sass/layout/_nav.scss */
+    /* line 169, ../admin/assets/sass/layout/_nav.scss */
     .nav__link {
       font-size: 1.6rem;
       font-weight: 500; }
-      /* line 167, ../admin/assets/sass/layout/_nav.scss */
+      /* line 173, ../admin/assets/sass/layout/_nav.scss */
       .nav__link:hover {
         color: #E2C044; } }
 

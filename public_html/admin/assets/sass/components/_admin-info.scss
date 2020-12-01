@@ -25,6 +25,9 @@
         color:$color-light-1;
         margin:0 1.4rem;
     }
+    &__notification {
+        margin-left:1rem;
+    }
     &__icon {
         font-size:3rem;
         color:rgba($color-light-1,.8);

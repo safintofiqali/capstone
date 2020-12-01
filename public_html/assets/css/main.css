@@ -48,6 +48,12 @@ body {
   display: inline-block;
   padding: 0 2rem; }
 
+/* line 20, sass/base/_typography.scss */
+.heading-secondary {
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px; }
+
 /* line 1, sass/base/_utilities.scss */
 .u-text-center {
   text-align: center; }
@@ -55,6 +61,10 @@ body {
 /* line 4, sass/base/_utilities.scss */
 .u-margin-bottom-big {
   margin-bottom: 6rem; }
+
+/* line 7, sass/base/_utilities.scss */
+.u-margin-top-big {
+  margin-top: 6rem; }
 
 /* line 1, sass/components/_idea-form.scss */
 .idea-form {
@@ -307,17 +317,18 @@ body {
         font-weight: 400; } }
 
 /* line 36, sass/components/_project-card.scss */
-.parent {
+.parent,
+.ideas {
   width: 100%;
   text-align: center;
   margin-top: 4rem; }
 
-/* line 42, sass/components/_project-card.scss */
+/* line 43, sass/components/_project-card.scss */
 .card_paginations {
   background-color: beige;
   padding: 1rem 1.5rem;
   border: none; }
-  /* line 46, sass/components/_project-card.scss */
+  /* line 47, sass/components/_project-card.scss */
   .card_paginations:not(:last-child) {
     margin-right: 1rem; }
 
@@ -400,35 +411,37 @@ body {
 .project {
   background-color: #0C1821;
   display: flex;
+  width: 100%;
   padding: 2rem;
   border-bottom: 5px solid #F4F6F6; }
-  /* line 7, sass/components/_project.scss */
+  /* line 8, sass/components/_project.scss */
   .project__img-box {
     flex: 0 0 40%;
     background-color: burlywood; }
-  /* line 12, sass/components/_project.scss */
+  /* line 13, sass/components/_project.scss */
   .project__img {
     width: 100%;
     height: 100%;
     object-fit: cover; }
-  /* line 18, sass/components/_project.scss */
+  /* line 19, sass/components/_project.scss */
   .project__text {
     margin-left: 2.5rem; }
-  /* line 22, sass/components/_project.scss */
+  /* line 23, sass/components/_project.scss */
   .project__title {
     color: #E2C044; }
-  /* line 26, sass/components/_project.scss */
+  /* line 27, sass/components/_project.scss */
   .project__major {
     color: #41BBD9; }
-  /* line 30, sass/components/_project.scss */
+  /* line 31, sass/components/_project.scss */
   .project__brief {
     color: #fff;
     font-size: 1.4rem;
     margin-top: 1rem; }
-  /* line 36, sass/components/_project.scss */
+  /* line 37, sass/components/_project.scss */
   .project__link {
     text-decoration: none;
-    display: block; }
+    display: block;
+    width: 100%; }
 
 /* line 1, sass/components/_slide.scss */
 .slide-container {
@@ -487,6 +500,67 @@ body {
     font-size: 1.6rem;
     color: #F4F6F6;
     font-weight: 700; }
+
+/* line 1, sass/components/_comment-box.scss */
+.comment {
+  background-color: #F4F6F6;
+  border-radius: 3px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  width: 70%; }
+  /* line 7, sass/components/_comment-box.scss */
+  .comment:not(:last-child) {
+    margin-bottom: 1rem; }
+  /* line 10, sass/components/_comment-box.scss */
+  .comment-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+  /* line 17, sass/components/_comment-box.scss */
+  .comment__author {
+    padding: 1rem;
+    background-color: #E6AF2E; }
+  /* line 21, sass/components/_comment-box.scss */
+  .comment__date {
+    font-size: 1.2rem;
+    text-align: right;
+    padding: .5rem 2rem;
+    border-top: 2px solid rgba(0, 0, 0, 0.15); }
+
+/* line 1, sass/components/_comment-form.scss */
+.comment-form {
+  width: 70%;
+  margin: 0 auto; }
+
+/* line 6, sass/components/_comment-form.scss */
+.comment__group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; }
+
+/* line 13, sass/components/_comment-form.scss */
+.comment__content {
+  flex: 0 0 90%;
+  padding: 1rem;
+  height: fit-content;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: inherit;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px; }
+
+/* line 24, sass/components/_comment-form.scss */
+.comment__button {
+  flex: 1;
+  align-self: stretch;
+  background-color: #004385;
+  color: #fff;
+  font-size: 2rem;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px; }
 
 /* line 1, sass/layout/_flex.scss */
 .row {
@@ -820,30 +894,39 @@ body {
     width: 100%;
     display: block; }
 
+/* line 40, sass/pages/_view.scss */
+section.section-comments {
+  padding: 5rem;
+  background-color: #A5B6B6; }
+
 /* line 1, sass/pages/_projects.scss */
 .main {
   padding: 4rem 0;
   display: flex; }
 
 /* line 6, sass/pages/_projects.scss */
+.section-container {
+  width: 100%; }
+
+/* line 10, sass/pages/_projects.scss */
 .aside {
   background-color: #A5B6B6;
   padding: 2rem; }
   @media screen and (min-width: 56.25em) {
-    /* line 6, sass/pages/_projects.scss */
+    /* line 10, sass/pages/_projects.scss */
     .aside {
       flex: 0 0 25%;
       position: static; }
-      /* line 16, sass/pages/_projects.scss */
+      /* line 20, sass/pages/_projects.scss */
       .aside__title {
         font-size: 3rem;
         margin-bottom: 3rem; }
-      /* line 20, sass/pages/_projects.scss */
+      /* line 24, sass/pages/_projects.scss */
       .aside__filter-title {
         margin: 1.5rem 0; }
-      /* line 23, sass/pages/_projects.scss */
+      /* line 27, sass/pages/_projects.scss */
       .aside ul {
         list-style: none; }
-      /* line 26, sass/pages/_projects.scss */
+      /* line 30, sass/pages/_projects.scss */
       .aside li {
         margin: 1rem 0; } }

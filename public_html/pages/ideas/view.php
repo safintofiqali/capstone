@@ -11,6 +11,7 @@
 
 <section class="section-demo">
     <h2 class="section-demo__title"><?php echo $idea['idea_title'];?></h2>
+    <h5 class="section-demo__major"><i class="fas fa-envelope"></i> &nbsp; <?php echo $idea['idea_author_email'];?></h5>
     <h5 class="section-demo__major"><i class="fas fa-university"></i> &nbsp; <?php echo $idea['idea_major'];?></h5>
     <p class="section-demo__detail"><?php echo $idea['idea_detail'];?></p>
 </section>

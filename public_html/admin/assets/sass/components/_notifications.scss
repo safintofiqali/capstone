@@ -1,0 +1,29 @@
+.notification {
+    background-color: $color-user-dark;
+    width:50%;
+    margin:0 auto;
+    ul {
+        list-style:none;
+    }
+    li {
+        display: inline-block;
+        width:100%;
+        padding:2rem;
+        background-color: $color-cta;
+        border-bottom: 3px solid $color-light-1;
+        font-size: 2rem;
+        span {
+            font-weight: 700;
+            color:$color-btn-1;
+            margin-right: 1rem;
+        }
+
+        &:nth-child(odd) {
+            background-color: rgba($color-cta,.4);
+        }
+
+        &:hover {
+            background-color: rgba($color-border-1,.4);
+        }
+    }
+}

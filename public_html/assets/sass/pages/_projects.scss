@@ -3,6 +3,10 @@
     display: flex;
 }
 
+.section-container {
+    width:100%;
+}
+
 .aside {
     background-color: $color-primary-dark;
     padding: 2rem;

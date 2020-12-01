@@ -1,0 +1,28 @@
+.actions {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1rem 0;
+
+    &__btn {
+        border: none;
+        width: 10rem;
+        height: 4rem;
+        display: inline-block;
+        transition: all .4s;
+        cursor: pointer;
+        font-size:1.6rem;
+        
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 2rem rgba(0,0,0,.4);
+        }
+        
+        &--approve {
+            background-color: $color-btn-2;
+        }
+        &--delete {
+            background-color: $color-btn-1;
+        }
+    }
+}

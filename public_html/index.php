@@ -12,9 +12,9 @@
                     <span class="slide-container__prevBtn"><i class="fas fa-chevron-left"></i></span>
                     <?php
                     // Retrieve Projects for Slides
-                    $projects = selectRecentProject($conn);
+                    $projects = selectRecentProject();
                     while ($project = mysqli_fetch_assoc($projects)) {
-                        $photo = selectPhoto($conn, $project['proj_id']);
+                        $photo = selectPhoto($project['proj_id']);
                     ?>
                         <a href="<?php echo url_for('/pages/projects/view.php?proj_id=' . $project['proj_id']); ?>">
                             <div class="slide">
@@ -35,9 +35,9 @@
             <div class="col-md-2">
                 <div class="row">
                     <?php
-                    $projects = selectFourProject($conn, 0, 2);
+                    $projects = selectFourProject(0, 2);
                     while ($project = mysqli_fetch_assoc($projects)) {
-                        $photo = selectPhoto($conn, $project['proj_id']);
+                        $photo = selectPhoto($project['proj_id']);
                     ?>
                         <div class="col-2">
                             <a href="<?php echo url_for('/pages/projects/view.php?proj_id=' . $project['proj_id']); ?>">
@@ -55,9 +55,9 @@
 
                 <div class="row">
                     <?php
-                    $projects = selectFourProject($conn, 2, 2);
+                    $projects = selectFourProject(2, 2);
                     while ($project = mysqli_fetch_assoc($projects)) {
-                        $photo = selectPhoto($conn, $project['proj_id']);
+                        $photo = selectPhoto($project['proj_id']);
                     ?>
                         <div class="col-2">
                             <div class="recent-card">
@@ -93,7 +93,7 @@
             <?php
             $projects = selectProjects(0);
             while ($project = mysqli_fetch_assoc($projects)) {
-                $photo = selectPhoto($conn, $project['proj_id']);
+                $photo = selectPhoto($project['proj_id']);
             ?>
                 <div class="col-md-4">
                     <a href="<?php echo url_for('/pages/projects/view.php?proj_id=' . $project['proj_id']); ?>">
@@ -136,7 +136,7 @@
         </script>
     </section>
 
-    <!-- Section About -->
+    <!-- Section Share Ideas -->
     <section class="section-share" id="shareidea">
         <div class="u-text-center u-margin-bottom-big">
             <h2 class="heading-primary">Share your ideas</h2>
@@ -163,8 +163,9 @@
             <div class="idea-form__group">
                 <label for="major" class="idea-form__label">The idea is useful for:</label>
                 <select name="major" id="major" class="idea-form__select">
+                    <option value=''>Select Idea Major</option>
                     <?php
-                    $depts = selectAllDept($conn);
+                    $depts = selectAllDept();
                     while ($row = mysqli_fetch_assoc($depts)) {
                     ?>
                         <option value="<?php echo $row['dept_name']; ?>"><?php echo $row['dept_name']; ?></option>
@@ -211,14 +212,14 @@
             <h2 class="heading-primary">Ideas for your project</h2>
         </div>
 
-        <div class="row result">
+        <div class="row ideaResult">
             <!-- Starting PHP -->
             <?php
             $ideas = selectIdeas(0);
             while ($idea = mysqli_fetch_assoc($ideas)) {
             ?>
                 <div class="col-md-4">
-                    <a href="#" style="text-decoration:none">
+                    <a href="<?php echo url_for('/pages/ideas/view.php?idea_id=' . $idea['idea_id']) ?>" style="text-decoration:none">
                         <div class="idea-card">
                             <h2 class="idea-card__title"><?php echo $idea['idea_title']; ?></h4>
                                 <p class="idea-card__detail"><?php echo $idea['idea_detail']; ?></p>
@@ -230,61 +231,35 @@
             <!-- Ending PHP -->
         </div>
 
-        <div class="parent">
+        <div class="ideas">
             <?php pagination('ideas'); ?>
         </div>
 
-        <!-- <div class="row">
-            <div class="col-md-4">
-                <a href="#">
-                    <div class="card">
-                        <img src="assets/img/project-14.jpg" alt="" class="card__background">
-                        <div class="card__text-box">
-                            <h4 class="card__title">Idea Name</h4>
-                            <p class="card__detail">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa, ad?</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="#">
-                    <div class="card">
-                        <img src="assets/img/project-15.jpg" alt="" class="card__background">
-                        <div class="card__text-box">
-                            <h4 class="card__title">Idea Name</h4>
-                            <p class="card__detail">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa, ad?</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="#">
-                    <div class="card">
-                        <img src="assets/img/project-16.jpg" alt="" class="card__background">
-                        <div class="card__text-box">
-                            <h4 class="card__title">Idea Name</h4>
-                            <p class="card__detail">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa, ad?</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="#">
-                    <div class="card">
-                        <img src="assets/img/project-17.jpg" alt="" class="card__background">
-                        <div class="card__text-box">
-                            <h4 class="card__title">Idea Name</h4>
-                            <p class="card__detail">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa, ad?</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div> -->
+        <script>
+            const ideas = document.querySelector(".ideas");
+            ideas.addEventListener("click", ideaOutput, false);
 
+            function ideaOutput(e) {
+                let limit = e.target.id * 4;
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET", "result.php?ideas=" + limit, true);
+
+                let row = document.querySelector(".ideaResult");
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        let result = xhr.responseText;
+                        row.style.animation = "move .5s";
+                        row.innerHTML = result;
+                    }
+                }
+                row.style.animation = "";
+                xhr.send();
+            }
+        </script>
 
     </section>
 </main>
 
-<script src="<?php echo url_for("/assets/js/slide.js")?>"></script>
+<script src="<?php echo url_for("/assets/js/slide.js") ?>"></script>
 
 <?php include_once(SHARED_PATH . '/home_footer.php'); ?>

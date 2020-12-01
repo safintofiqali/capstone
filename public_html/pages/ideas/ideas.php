@@ -2,6 +2,7 @@
 <?php include_once(SHARED_PATH . '/home_header.php'); ?>
 
 <main class="main">
+    <!-- Filter Aside Section -->
     <aside class="aside">
         <h2 class="aside__title"><i class="fas fa-filter"></i> &nbsp; Filter Ideas</h2>
 
@@ -14,21 +15,6 @@
                 <li class="aside__filter-item">
                     <input type="checkbox" id="<?php echo $dept['dept_name'] ?>" class='aside__filter-input major' value="<?php echo $dept['dept_name'] ?>">
                     <label for="<?php echo $dept['dept_name'] ?>" class="aside__filter-label"><?php echo $dept['dept_name'] ?></label>
-                </li>
-            <?php
-            }
-            ?>
-        </ul>
-        <h3 class="aside__filter-title">Year</h3>
-        <ul>
-
-            <?php
-            $depts = selectAllDept($conn);
-            for ($i = 9; $i >= 0; $i--) {
-            ?>
-                <li class="aside__filter-item">
-                    <input type="checkbox" id="<?php echo "201" . $i ?>" class='aside__filter-input'>
-                    <label for="<?php echo "201" . $i ?>" class="aside__filter-label"><?php echo "201" . $i ?></label>
                 </li>
             <?php
             }
