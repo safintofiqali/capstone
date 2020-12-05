@@ -59,10 +59,9 @@ if (isset($_POST['addstudent'])) {
 <!-- Register Form -->
 
 
-
 <form autocomplete="off" method="post" action="add.php" class="form">
     <div class="form__header">
-    <h2>Add New Student</h2>
+        <h2>Add New Student</h2>
     </div>
     <div class="form__group">
         <label for="" class="form__label">
@@ -103,7 +102,7 @@ if (isset($_POST['addstudent'])) {
             Choose Major
         </label>
         <select name="major" id="major" class="form__select">
-            <option class="form__option" selected>Select student major</option>
+            <option class="form__option" selected value=''>Select student major</option>
             <?php
             $dept = selectAllDept();
             while ($row = mysqli_fetch_assoc($dept)) :
@@ -112,7 +111,8 @@ if (isset($_POST['addstudent'])) {
                     <?php echo $row['dept_name']; ?>
                 </option>
 
-            <?php ; endwhile; ?>
+            <?php ;
+            endwhile; ?>
         </select>
     </div>
 
@@ -148,6 +148,3 @@ if (isset($_POST['addstudent'])) {
     <input type="hidden" name="inst_id" value='2'>
     <input id='submit-data' class="form__btn" type="submit" value="Register" name="addstudent" />
 </form>
-
-
-

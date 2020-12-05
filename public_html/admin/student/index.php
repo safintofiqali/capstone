@@ -33,7 +33,15 @@
                         <div class="navcard__icon">
                         <i class="fas fa-edit"></i>
                         </div>
-                        <h3 class="navcard__name">Edit</h3>
+                        <h3 class="navcard__name">Edit Project</h3>
+                    </div>
+                </a>              
+                <a href="<?php echo url_for('/admin/student/comments.php');?>" class='navcard__wrapper-link'>
+                    <div class="navcard navcard--ideas">
+                        <div class="navcard__icon">
+                        <i class="fas fa-comment"></i>
+                        </div>
+                        <h3 class="navcard__name">Comments</h3>
                     </div>
                 </a>              
             </div>

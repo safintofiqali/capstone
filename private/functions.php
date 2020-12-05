@@ -168,7 +168,7 @@ function is_empty($inputs)
 }
 
 // Check if username or email is taken
-function usernameExists($conn, $username, $email)
+function usernameExists($username, $email)
 {
     global $conn;
     $sql = "SELECT * FROM students where std_username = $username of std_email = $email";
@@ -352,4 +352,23 @@ function selectFile($id)
     $sql = "SELECT * from files where proj_id = $id";
     $result = mysqli_query($conn, $sql);
     return $file = mysqli_fetch_assoc($result);
+}
+
+// ####################
+// Comments Functions
+// ####################
+function selectLimitedComments($page,$id){
+    global $conn;
+    $sql = "SELECT * FROM comments WHERE proj_id = '$id' LIMIT $page,10 ;";
+    $result = mysqli_query($conn,$sql);
+    confirm_result_set($result);
+    return $result;
+}
+
+function selectAllComments($id){
+    global $conn;
+    $sql = "SELECT * FROM comments where proj_id = $id;";
+    $result = mysqli_query($conn,$sql);
+    confirm_result_set($result);
+    return $result;
 }

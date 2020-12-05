@@ -71,19 +71,7 @@
         });
     });
 
-    yearChecks.forEach(function(year) {
-        year.addEventListener("change", function() {
-            
-            if (year.checked) {
-                years.push(year.value);
-                sendData(years);
-            } else {
-                let index = years.indexOf(year.value);
-                years.splice(index, 1);
-                sendData(years);
-            }
-        });
-    });
+
 
 
     function sendData(values) {
@@ -100,21 +88,6 @@
         xhr.send();
     }
 
-    function sendData(years) {
-        console.log(years)
-        let xhr = new XMLHttpRequest();
-        let url = "<?php echo url_for("/result.php?year="); ?>"
-        xhr.open("GET", url + years, true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                let target = document.querySelector(".results");
-                target.innerHTML = xhr.responseText;
-                // console.log(xhr.responseText);
-                alert(xhr.responseText)
-            }
-        }
-        xhr.send();
-    }
 </script>
 
 <?php include_once(SHARED_PATH . '/home_footer.php'); ?>

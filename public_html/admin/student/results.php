@@ -30,3 +30,19 @@ if (isset($_GET['stdNotify'])) {
         echo "Failed";
     }
 }
+
+
+// Ideas Functions
+
+if (isset($_GET['deleteComment'])) {
+    global $conn;
+    $ids = $_GET['deleteComment'];
+    $sql = "DELETE FROM comments where comment_id IN($ids)";
+    $result = mysqli_query($conn, $sql);
+    if (!$result) {
+        echo "Failed";
+        echo mysqli_error($conn);
+    } else {
+        echo "Successedd";
+    }
+}
